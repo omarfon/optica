@@ -1,0 +1,7 @@
+{
+  "name": "optica",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
