@@ -1,0 +1,22 @@
+.containerOption{
+    margin-top:10vh;
+    border:3px solid #0A6EBD;
+    background: #0A6EBD;
+    height:50vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    h3{
+        text-align: center;
+        color:#fff;
+        font-size: 2.2em;
+    }
+}
+ion-card{
+    ion-avatar{
+        width:80px;
+        height: 80px;
+    }
+}
+
