@@ -1,3 +1,75 @@
-<p>
-  ventas works!
-</p>
+<ion-content>
+  <ion-list>
+  <ion-row>
+    <ion-col size="4">
+      <ion-item>
+        <ion-select label="Selecciona uno" placeholder="Tipo de documento">
+          <ion-select-option>DNI</ion-select-option>
+          <ion-select-option>C.E</ion-select-option>
+          <ion-select-option>Pasaporte</ion-select-option>
+        </ion-select>
+      </ion-item>
+    </ion-col>
+      <ion-col size="4">
+        <ion-item>
+          <ion-input type="number" label="N° de documento" labelPlacement="floating"></ion-input>
+        </ion-item>  
+      </ion-col>
+      <ion-col size="4">
+        <ion-button (click)="getData()">ObtenerDatos</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-list>
+  <ion-row *ngIf="data">
+    <ion-col size="6">
+    <ion-item>
+        <ion-label position="stacked">Nombres</ion-label>
+        <ion-input type="text">{{data.names}}</ion-input>
+      </ion-item>
+      </ion-col>
+    <ion-col size="3">
+      <ion-item>
+        <ion-label position="stacked">Apellido Paterno</ion-label>
+        <ion-input type="text"> {{data.apellidoPaterno}}</ion-input>
+      </ion-item>
+     </ion-col>
+    <ion-col size="3">
+      <ion-item>
+        <ion-label position="stacked">Apellido Materno</ion-label>
+        <ion-input type="text"> {{data.apellidoMaterno}}</ion-input>
+      </ion-item>
+      </ion-col>
+    <ion-col size="3">
+      <ion-item>
+        <ion-label position="stacked">genero</ion-label>
+        <ion-input type="text">{{data.genero}}</ion-input>
+      </ion-item>
+      </ion-col>
+    <ion-col size="6">
+      <ion-item>
+        <ion-label position="stacked">Dirección</ion-label>
+        <ion-input type="text">{{data.direccion}}</ion-input>
+      </ion-item>
+      </ion-col>
+    <ion-col size="3">
+      <ion-item>
+        <ion-label position="stacked">Fecha de Nacimiento</ion-label>
+        <ion-input type="text">{{data.fechaNacimiento}}</ion-input>
+      </ion-item>
+      </ion-col>
+      <ion-col size="6">
+        <ion-item>
+          <ion-label position="stacked">Email</ion-label>
+          <ion-input type="text"></ion-input>
+        </ion-item>
+        </ion-col>
+        <ion-col size="3">
+          <ion-item>
+            <ion-label position="stacked">Celular</ion-label>
+            <ion-input type="text"></ion-input>
+          </ion-item>
+          </ion-col><ion-col size="3">
+            <ion-button expand="block">Guardar</ion-button>
+            </ion-col>
+  </ion-row>
+</ion-content>

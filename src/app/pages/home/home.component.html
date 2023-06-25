@@ -1,11 +1,21 @@
 <ion-content>
+  <div>
+    <ion-row>
+      <ion-col size="9">
+        <ion-input type="text" label="Busca Usuario" labelPlacement="floating"></ion-input>
+      </ion-col>
+      <ion-col size="3">
+        <ion-button expand="block">Buscar</ion-button>
+      </ion-col>
+    </ion-row>
+  </div>
   <ion-row>
-    <ion-col size="6">
+    <ion-col size="6" (click)="goToOptometra()">
       <div class="containerOption">
         <h3>Optometra</h3>
       </div>
     </ion-col>
-    <ion-col size="6">
+    <ion-col size="6" (click)="goToVendedor()">
       <div class="containerOption">
         <h3>Vendedora</h3>
       </div>
@@ -14,6 +24,30 @@
   <ion-row>
     <ion-col size="12">
       <ion-list>
+          <ion-card>
+            <ion-row>
+              <ion-col size="3">
+                <ion-avatar><img src="https://ionicframework.com/docs/img/demos/avatar.svg" alt=""></ion-avatar>
+              </ion-col>
+              <ion-col size="9">
+                <h1>Nombre Usuario atendido</h1>
+                <p>Producto adquirido</p>
+                <h6>Estatus: Pendiente entrega</h6> <span>Monto pendiente:S/ 450</span>  
+              </ion-col>
+            </ion-row>
+          </ion-card>
+          <ion-card>
+            <ion-row>
+              <ion-col size="3">
+                <ion-avatar><img src="https://ionicframework.com/docs/img/demos/avatar.svg" alt=""></ion-avatar>
+              </ion-col>
+              <ion-col size="9">
+                <h1>Nombre Usuario atendido</h1>
+                <p>Producto adquirido</p>
+                <h6>Estatus: Pendiente entrega</h6> <span>Monto pendiente:S/ 450</span>  
+              </ion-col>
+            </ion-row>
+          </ion-card>
           <ion-card>
             <ion-row>
               <ion-col size="3">
