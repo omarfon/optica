@@ -1,0 +1,32 @@
+.buscador{
+    margin-top: 50px;
+}
+
+.datosUsuario{
+    background: #7895CB;
+    padding-top:20px;
+    margin-top:20px;
+    margin-bottom:20px;
+    padding-bottom:20px;
+}
+.containerFormulario{
+    display: flex;
+    justify-content: center;
+
+    h3{
+        color:#4A55A2;
+        margin-top:50px;
+        text-align: center;
+        font-size:2em;
+    }
+    ion-card{
+        flex-direction:initial;
+        p{
+        font-size:1.2em;
+            span{
+                font-weight: 600;
+                font-size:1.2em;
+            }
+        }
+    }
+}
