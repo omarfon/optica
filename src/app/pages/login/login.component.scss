@@ -1,15 +1,30 @@
-
+ion-content{
+    --background:#337CCF;
+}
 .containerIcon{
     margin-top:20vh;
 }
 .reduce{
     text-align: center;
 }
-.formularioContainer{
+h3{
+    color:#ffffff;
+    text-transform: uppercase;
     margin-top:30vh;
-    margin-left:20%;
-    margin-right: 20%;
+    margin-bottom:50px;
+}
+.formularioContainer{
+    margin-left:15%;
+    margin-right: 15%;
+}
+ion-item{
+    margin-bottom:20px;
+}
+ion-input{
+    height: 60px;
 }
 ion-button{
     margin-top:20px;
+    --background:#191D88;
+    height: 60px;
 }
