@@ -1,5 +1,5 @@
 <ion-content>
-  <ion-list>
+  <ion-list class="buscador">
   <ion-row>
     <ion-col size="4">
       <ion-item>
@@ -20,7 +20,7 @@
       </ion-col>
     </ion-row>
   </ion-list>
-  <ion-row *ngIf="data">
+  <ion-row *ngIf="data" class="datosUsuario">
     <ion-col size="6">
     <ion-item>
         <ion-label position="stacked">Nombres</ion-label>
@@ -60,16 +60,85 @@
       <ion-col size="6">
         <ion-item>
           <ion-label position="stacked">Email</ion-label>
-          <ion-input type="text"></ion-input>
+          <ion-input type="text" [(ngModel)]="email"></ion-input>
         </ion-item>
         </ion-col>
         <ion-col size="3">
           <ion-item>
             <ion-label position="stacked">Celular</ion-label>
-            <ion-input type="text"></ion-input>
+            <ion-input type="text" [(ngModel)]="celular"></ion-input>
           </ion-item>
           </ion-col><ion-col size="3">
-            <ion-button expand="block">Guardar</ion-button>
+            <ion-button expand="block" (click)="saveNewUser()">Guardar</ion-button>
             </ion-col>
+  </ion-row>
+
+  <ion-row class="containerFormulario">
+    <h3>Escoge las opciones</h3>
+    <ion-col size="12">
+      <ion-item>
+        <ion-select label="escoge Diseño" (ionChange)="obtenerTecnologia($event)">
+          <ion-select-option value="MONOFOCALES">MONOFOCALES</ion-select-option>
+          <ion-select-option value="BIFOCALES">BIFOCALES</ion-select-option>
+        </ion-select>
+      </ion-item>
+    </ion-col>
+    <ion-col size="12" *ngIf="tecnologys">
+      <ion-item >
+        <ion-select label="escoge Tecnología" (ionChange)="obtenerTratamientos($event)">
+          <ion-select-option [value]="t" *ngFor="let t of tecnologys; let i as index">{{t}}</ion-select-option>
+        </ion-select>
+      </ion-item>
+      </ion-col>
+      <ion-col size="12" *ngIf="tratamientos">
+        <ion-item >
+          <ion-select label="escoge Tratamiento" (ionChange)="obtenerProductos($event)">
+            <ion-select-option [value]="tra" *ngFor="let tra of tratamientos; let i as index">{{tra}}</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ion-col>
+      <ion-col size="6">
+
+      </ion-col>
+      <ion-col size="6">
+        
+      </ion-col>
+      <ion-col size="12" *ngIf="producto">
+        <ion-row>
+          <ion-col size="8">
+            <div >
+              <ion-card>
+                <ion-card-content>
+                  <p>MATERIAL: <span>{{producto[0].MATERIAL}}</span></p>
+                  <p>TECNOLOGIA: <span>{{producto[0].TECNOLOGIA}}</span></p>
+                  <p>DISEÑO: <span>{{producto[0].DISENO}}</span></p>
+                  <P>TRATAMIENTOS: <span>{{producto[0].TECNOLOGIA}}</span></P>
+                  <p>GAMA: <span>{{producto[0].GAMA}}</span></p>
+                  <p>ANTIRREFLEJOS: <span>{{producto[0].ANTIRREFLEJOS}}</span></p>
+                  <p>Precio: <span>{{producto[0].costo}}</span></p>
+                  <p>Precio Marco: S/. 76.00</p>
+                  <p>Precio Total <span>S/.176.00 </span></p>
+                </ion-card-content>
+              </ion-card>
+            </div>
+          </ion-col>
+          <ion-col size="4">
+            <img src="../../../assets/lente.jpg" alt="">
+          </ion-col>
+        </ion-row>
+      </ion-col>
+      <ion-col size="12" *ngIf="producto">
+        <ion-row>
+          <ion-col size="6">
+            <p>Adelanto:</p>
+            <ion-item>
+              <ion-input type="text" label="S/. 158.00"></ion-input>
+            </ion-item>
+          </ion-col>
+          <ion-col size="6">
+          </ion-col>
+        </ion-row>
+      </ion-col>
+        <div></div>
   </ion-row>
 </ion-content>
