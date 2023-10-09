@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AlertController } from '@ionic/angular';
 import { PreciosService } from 'src/app/services/precios.service';
 
 
@@ -25,7 +26,7 @@ export class VentasComponent  implements OnInit {
   public tecnologys: any = [];
   public tratamientos: any = [];
   public producto:any;
-  constructor(public presciosSrv: PreciosService) { }
+  constructor(public presciosSrv: PreciosService, public alert: AlertController) { }
 
   ngOnInit() {
     this.presciosSrv.getDataTotal().subscribe((data:any) => {
@@ -78,6 +79,20 @@ export class VentasComponent  implements OnInit {
     console.log(prod);
     this.producto = this.estructura.filter((x:any) => x.TRATAMIENTOS === prod);
     console.log(prod, this.producto);
+  }
+
+  async saveDate(){
+    let alert = await this.alert.create({
+      header:'Transacción Creada',
+      subHeader: 'Se ha guardado correctamente',
+      message:'Se ha enviado la boleta al mail magentadin@gmail.com',
+      buttons:[{
+        text:'Entendido',
+        
+      }]
+      
+    });
+    await alert.present();
   }
 
 }
