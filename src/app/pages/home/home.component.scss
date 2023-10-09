@@ -3,7 +3,7 @@ ion-content{
 }
 ion-header{
     ion-toolbar{
-        --background: #0A6EBD;
+        --background: #191D88;
         color:#fff;
     }
     height: 70px;
@@ -13,21 +13,22 @@ ion-header{
 }
 .containerOptions{
     display: flex;
+    width:80vw;
 }
 .containerOption{
     margin-top:5vh;
     background: #ffffff;
     height:40vh;
-    width: 80%;
-    margin-left:10%;
+    width: 90%;
+    margin-left:5%;
     border-radius:10px;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction:column ;
     -webkit-box-shadow: 3px 4px 14px 0px rgba(158,150,158,1);
--moz-box-shadow: 3px 4px 14px 0px rgba(158,150,158,1);
-box-shadow: 3px 4px 14px 0px rgba(158,150,158,1);
+    -moz-box-shadow: 3px 4px 14px 0px rgba(158,150,158,1);
+    box-shadow: 3px 4px 14px 0px rgba(158,150,158,1);
     :hover{
         background-color: #0A6EBD;
         color:#fff;

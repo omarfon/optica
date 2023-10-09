@@ -11,4 +11,8 @@ export class OptometraComponent  implements OnInit {
 
   ngOnInit() {}
 
+  searchPatient(){
+    
+  }
+
 }

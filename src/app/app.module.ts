@@ -11,11 +11,17 @@ import { HomeComponent } from './pages/home/home.component';
 import { VentasComponent } from './pages/ventas/ventas.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from  '@angular/common/http';
+import { OptometraComponent } from './pages/optometra/optometra.component';
+
 
 
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, HomeComponent, VentasComponent],
+  declarations: [AppComponent, 
+                 LoginComponent, 
+                 HomeComponent, 
+                 VentasComponent,
+                 OptometraComponent],
   imports: [BrowserModule, IonicModule.forRoot(), 
             AppRoutingModule,FormsModule, 
             HttpClientModule],
