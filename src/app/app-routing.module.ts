@@ -4,6 +4,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { HomeComponent } from './pages/home/home.component';
 import { VentasComponent } from './pages/ventas/ventas.component';
 import { OptometraComponent } from './pages/optometra/optometra.component';
+import { VentasdiaComponent } from './ventasdia/ventasdia.component';
 HomeComponent
 
 const routes: Routes = [
@@ -22,6 +23,10 @@ const routes: Routes = [
   {
     path: 'optometra',
     component:OptometraComponent
+  },
+  {
+    path: 'ventasdia',
+    component:VentasdiaComponent
   },
 ];
 

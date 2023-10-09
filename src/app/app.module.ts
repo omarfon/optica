@@ -12,8 +12,7 @@ import { VentasComponent } from './pages/ventas/ventas.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from  '@angular/common/http';
 import { OptometraComponent } from './pages/optometra/optometra.component';
-
-
+import { VentasdiaComponent } from './ventasdia/ventasdia.component';
 
 
 @NgModule({
@@ -21,6 +20,7 @@ import { OptometraComponent } from './pages/optometra/optometra.component';
                  LoginComponent, 
                  HomeComponent, 
                  VentasComponent,
+                 VentasdiaComponent,
                  OptometraComponent],
   imports: [BrowserModule, IonicModule.forRoot(), 
             AppRoutingModule,FormsModule, 

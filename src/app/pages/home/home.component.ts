@@ -21,4 +21,8 @@ export class HomeComponent  implements OnInit {
     this.router.navigate(['optometra'])
   }
 
+  goToVentas(){
+    this.router.navigate(['ventasdia'])
+  }
+
 }
