@@ -14,15 +14,15 @@ export class HomeComponent  implements OnInit {
   ngOnInit() {}
 
   goToVendedor(){
-    this.router.navigate(['ventas'])
+    this.router.navigate(['home/ventas'])
   }
 
   goToOptometra(){
-    this.router.navigate(['optometra'])
+    this.router.navigate(['home/optometra'])
   }
 
   goToVentas(){
-    this.router.navigate(['ventasdia'])
+    this.router.navigate(['home/ventasdia'])
   }
 
 }

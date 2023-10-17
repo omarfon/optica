@@ -4,8 +4,10 @@ import { LoginComponent } from './pages/login/login.component';
 import { HomeComponent } from './pages/home/home.component';
 import { VentasComponent } from './pages/ventas/ventas.component';
 import { OptometraComponent } from './pages/optometra/optometra.component';
-import { VentasdiaComponent } from './ventasdia/ventasdia.component';
-HomeComponent
+import { VentasdiaComponent } from './pages/ventasdia/ventasdia.component';
+import { NavarComponent } from './navar/navar.component';
+import { AntecionClienteComponent } from './pages/ventasdia/antecion-cliente/antecion-cliente.component';
+
 
 const routes: Routes = [
   {
@@ -13,26 +15,43 @@ const routes: Routes = [
     component: LoginComponent
   },
   {
+    path: 'login',
+    component: LoginComponent
+  },
+  {
     path: 'home',
-    component:HomeComponent
+    component:NavarComponent,
+    children : [
+      {
+        path: '',
+        component:HomeComponent
+      },
+      {
+        path: 'ventas',
+        component:VentasComponent
+      },
+      {
+        path: 'optometra',
+        component:OptometraComponent
+      },
+      {
+        path: 'ventasdia',
+        component:VentasdiaComponent,
+        
+      },
+      {
+        path: 'ventasdia/:id',
+        component: AntecionClienteComponent,
+        
+      },
+    ]
   },
-  {
-    path: 'ventas',
-    component:VentasComponent
-  },
-  {
-    path: 'optometra',
-    component:OptometraComponent
-  },
-  {
-    path: 'ventasdia',
-    component:VentasdiaComponent
-  },
+  
 ];
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
+    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules , useHash:true })
   ],
   exports: [RouterModule]
 })

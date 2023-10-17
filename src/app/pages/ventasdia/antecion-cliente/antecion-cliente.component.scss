@@ -1,0 +1,133 @@
+ion-toolbar {
+    //height: 8vh;
+    --background: var(--ion-color-tertiary);
+    color: #fff;
+
+    .tolbar-title {
+        display: flex !important;
+        padding: 5%;
+        padding-bottom: 2%;
+
+        color: var(--ion-color-primary);
+
+        ion-icon {
+            font-size: 1.5em;
+            font-weight: 800;
+        }
+
+        .letter {
+            font-size: 1em;
+            font-weight: 800;
+        }
+    }
+}
+
+.searchs-inputs {
+    margin-top: 0;
+    padding-left: 2%;
+    padding-right: 2%;
+
+    .select-inputs {
+        //background-color: red;
+        font-size: .8em;
+
+        ion-label {
+            color: var(--ion-color-primary);
+        }
+
+        ion-item {
+            border: 1px solid #BEBEBE;
+            margin-top: 1%;
+            height: 4.5vh !important;
+            font-size: 1em;
+        }
+    }
+
+    .normal-inputs {
+        //background-color: red;
+        font-size: .8em;
+
+        ion-label {
+            color: var(--ion-color-primary);
+        }
+
+        ion-item {
+            border: 1px solid #BEBEBE;
+            margin-top: 1%;
+            height: 4.5vh !important;
+            font-size: 1em;
+        }
+    }
+}
+
+.cotizacion {
+    h3 {
+        color: var(--ion-color-primary);
+        font-size: 1.5em;
+        font-weight: 600;
+        text-align: center;
+        //padding: 4%;
+    }
+}
+.tabla {
+    padding-left: 2%;
+    padding-right: 2%;
+}
+
+.table-data {    
+    width: 100%;
+    .cabecera {
+        color: var(--ion-color-primary);
+        font-size: .9em;
+        font-weight: 600;
+
+    }
+
+    .data {
+        //border: 1px solid gray;
+
+        .type-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid var(--ion-color-primary);
+            margin: 5%;
+            height: 10vh;
+            color: var(--ion-color-primary);
+            //box-shadow: inset 0px 3px 6px #00000029;
+        }
+
+        .value-content {
+            height: 10vh;
+            display: flex;
+
+            flex-direction: column;
+            justify-content: space-between;
+            padding-left: 5%;
+            padding-right: 5%;
+
+            span {
+                padding: 10%;
+                font-weight: 600;
+                font-size: .8em;
+                color: var(--ion-color-lines);
+            }
+
+            ion-item {
+                box-shadow: inset 0px 3px 6px #00000029!important;
+                margin: 0;
+                padding: 0;
+                height: 4vh;
+                
+            }
+            ion-select {
+                width: 100%;
+                background-color: white!important;
+                box-shadow: inset 0px 3px 6px #00000029!important;
+            }
+
+        }
+       
+    }
+}
+

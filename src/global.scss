@@ -24,3 +24,27 @@
 @import "@ionic/angular/css/text-alignment.css";
 @import "@ionic/angular/css/text-transformation.css";
 @import "@ionic/angular/css/flex-utils.css";
+
+
+$responsive-breakpoint: 768px;
+$font-size-small: 14px;
+$font-size-large: 18px;
+
+.global-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.global-end {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.global-start {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}

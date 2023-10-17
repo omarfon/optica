@@ -1,13 +1,291 @@
-ion-content{
-    --background:#F2F3F5;
+ion-toolbar {
+    //height: 8vh;
+    --background: var(--ion-color-tertiary);
+    color: #fff;
+
+    .tolbar-title {
+        display: flex !important;
+        padding: 5%;
+        padding-bottom: 2%;
+
+        color: var(--ion-color-primary);
+
+        ion-icon {
+            font-size: 1.5em;
+            font-weight: 800;
+        }
+
+        .letter {
+            font-size: 1em;
+            font-weight: 800;
+        }
+    }
 }
-ion-header{
-    ion-toolbar{
-        --background: #191D88;
-        color:#fff;
+
+.searchs-inputs {
+    padding-left: 10%;
+    padding-right: 10%;
+
+    .stacked-inputs {
+        //background-color: red;
+        font-size: .7em;
+        ion-label {
+            color: var(--ion-color-primary);
+        }
+        ion-item {
+            background-color: transparent;
+            margin-top: 2%;
+            height: 4.5vh !important;
+            font-size: 1em;
+        }
     }
-    height: 70px;
-    ion-button{
-        height: 70px;
+}
+
+.medidas {
+    padding-top: 5%;
+
+    ion-button {
+
+        --background-color: var(--ion-color-secondary);
+        color: white;
+        font-size: 1em;
     }
+}
+
+.first-inputs {
+    padding-top: 5%;
+    padding-left: 5%;
+    padding-right: 5%;
+    .design-input {
+        display: flex;
+        align-items: center;
+        
+        ion-label {
+            font-size: .7em;
+            color: var(--ion-color-primary);
+            padding: 2%;
+            width: 40%;
+        }
+
+        ion-item {
+            --background:var(--ion-color-tertiary);
+            border: 1px solid var(--ion-color-primary);
+            width: 60%;
+            height:3vh;
+            
+        }
+    }
+
+}
+
+// ------ TABLA MODELO COTIZACION ------ \\
+.table-cotizacion {
+    h3 {
+        color: var(--ion-color-primary);
+        font-size: 1.5em;
+        font-weight: 600;
+        text-align: center;
+        //padding: 4%;
+    }
+    .tabla {
+        padding-left: 2%;
+        padding-right: 2%;
+    }
+    .table-data {    
+        width: 100%;
+        .cabecera {
+            color: var(--ion-color-primary);
+            font-size: .9em;
+            font-weight: 600;
+    
+        }
+    
+        .data {
+            //border: 1px solid gray;
+    
+            .type-content {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border: 1px solid var(--ion-color-primary);
+                margin: 5%;
+                height: 10vh;
+                color: var(--ion-color-primary);
+                //box-shadow: inset 0px 3px 6px #00000029;
+            }
+    
+            .value-content {
+                height: 10vh;
+                display: flex;
+    
+                flex-direction: column;
+                justify-content: space-between;
+                padding-left: 5%;
+                padding-right: 5%;
+    
+                span {
+                    padding: 10%;
+                    font-weight: 600;
+                    font-size: .8em;
+                    color: var(--ion-color-lines);
+                }
+    
+                ion-item {
+                    box-shadow: inset 0px 3px 6px #00000029!important;
+                    margin: 0;
+                    padding: 0;
+                    height: 4vh;
+                    
+                }
+                ion-select {
+                    width: 100%;
+                    background-color: white!important;
+                    box-shadow: inset 0px 3px 6px #00000029!important;
+                }
+    
+            }
+           
+        }
+    }
+}
+
+
+
+
+.options-checkboxs {
+    padding-left: 5%;
+    padding-right: 5%;
+    color: var(--ion-color-primary);
+}
+
+
+// ------ TABLA MODELO CONTACTO ------ \\
+.table-contacto {
+    .tabla {
+        padding: 2%;
+        /* padding-left: 2%;
+        padding-right: 2%; */
+    }
+    .table-data {    
+        width: 100%;
+        .cabecera {
+            color: var(--ion-color-primary);
+            font-size: .9em;
+            font-weight: 600;
+    
+        }
+    
+        .data {
+            //border: 1px solid gray;
+    
+            .type-content {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border: 1px solid var(--ion-color-primary);
+                margin: 5%;
+                height: 10vh;
+                color: var(--ion-color-primary);
+                //box-shadow: inset 0px 3px 6px #00000029;
+            }
+    
+            .value-content {
+                height: 10vh;
+                display: flex;
+    
+                flex-direction: column;
+                justify-content: space-between;
+                padding-left: 5%;
+                padding-right: 5%;
+    
+                span {
+                    padding: 10%;
+                    font-weight: 600;
+                    font-size: .8em;
+                    color: var(--ion-color-lines);
+                }
+    
+                ion-item {
+                    box-shadow: inset 0px 3px 6px #00000029!important;
+                    margin: 0;
+                    padding: 0;
+                    height: 4vh;
+                    
+                }
+                ion-select {
+                    width: 100%;
+                    background-color: white!important;
+                    box-shadow: inset 0px 3px 6px #00000029!important;
+                }
+    
+            }
+           
+        }
+    }
+}
+
+.inputs-form-1{
+    padding-top: 10%;
+    padding-left: 3%;
+    padding-right: 3%;
+    .title {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: .9em;
+        color: var(--ion-color-primary);
+        
+    }
+    .stacked-inputs {
+        //background-color: red;
+        font-size: .9em;
+        ion-label {
+            font-weight: 600;
+            font-size: 1em;
+            color: var(--ion-color-primary);
+        }
+        ion-item {
+            background-color: transparent;
+            margin-top: 2%;
+            height: 4.5vh !important;
+            font-size: 1em;
+        }
+    }
+}
+
+.input-anamnesis {
+    padding-left: 5%;
+    padding-right: 5%;
+    .stacked-inputs {
+        //background-color: red;
+        ion-label {
+            font-size: 1em;
+            font-weight: 600;
+            color: var(--ion-color-primary);
+        }
+        ion-item {
+
+            background-color: transparent;
+            margin-top: 2%;
+            
+            font-size: 1em;
+            box-shadow: inset 0px 3px 6px #00000029;
+        }
+        ion-textarea {
+            background-color: white;
+            box-shadow: inset 0px 3px 6px #00000029;
+            height: 10vh !important;
+        }
+    }
+}
+
+.dates-user{
+    padding-left: 5%;
+    padding-right: 5%;
+    color: black;
+    font-size: .9em;
+}
+
+.button-save {
+    padding: 5%;
 }

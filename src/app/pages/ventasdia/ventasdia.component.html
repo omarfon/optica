@@ -1,0 +1,20 @@
+
+<div class="logo-center">
+  <div class="global-center">
+    <div >
+      <ion-img src="./assets/venta.svg" alt=""></ion-img>
+    </div>
+    <h3>Ventas</h3>
+  </div>
+</div>
+
+
+<ion-row>
+  <ion-col (click)="goToAtentionOfClient(item)" size="6" *ngFor="let item of clients; let i = index">
+    <div class="options-6 global-center">
+      <div>        
+        <h3>{{i+1}}. {{item.nombre}}</h3>
+      </div>
+    </div>
+  </ion-col>
+</ion-row>

@@ -1,4 +1,88 @@
-<ion-content>
+<ion-toolbar>
+  <div class="tolbar-title" (click)="exit_menu()">
+    <div class="global-center">
+      <ion-icon name="arrow-back"></ion-icon>
+    </div>
+    <div class="letter global-center">
+      LISTADO DE DOCUMENTOS
+    </div>
+  </div>
+</ion-toolbar>
+
+
+<ion-grid>
+  <ion-row class="searchs-inputs">
+    <ion-col size="6" *ngFor="let item of value_searchs">
+      <div class="stacked-inputs">
+        <ion-label> {{item.label}} </ion-label>
+        <ion-item>
+          <ion-select slot="end">
+            <ion-select-option *ngFor="let d of documents" [value]="d.codigo">{{d.nombre}}</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </div>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+
+<div class="global-end button-search" slot="end">
+  <ion-button fill="outline" > BUSCAR </ion-button>
+</div>
+<ion-grid>
+  <table class="table-data">
+    <!-- Cabecera de la tabla -->
+    <thead class="cabecera">
+      <tr>
+        <th style="width: 10%;text-align: left;">N°</th>
+        <th style="width: 30%;text-align: left;">Tienda</th>
+        <th style="width: 30%;text-align: left;">Cliente</th>
+        <th style="width: 10%;text-align: center;">P. Venta</th>
+        <th style="width: 20%;text-align: center;">Vendedor</th>
+        <th style="text-align: center;">Doc</th>
+      </tr>
+    </thead>
+    
+    <!-- Datos de la tabla -->
+    <tbody class="data" >
+      <tr *ngFor="let item of tablaData; let i = index"[ngClass]="{'fila-seleccionada': cuadroVisible && i === filaSeleccionada}">
+        <td    class="join" (click)="mostrarIonCardEnElemento()">
+          <div class="content">
+            {{ item.numero }}
+          </div>
+        </td>
+        <td class="join" (click)="mostrarIonCardEnElemento()">
+          <div class="content">
+            {{ item.tienda }}
+          </div>
+        </td>
+        <td class="join rigth" (click)="mostrarIonCardEnElemento()">
+          <div class="content">
+            {{ item.cliente }}
+          </div>
+        </td>
+
+        <td class="not-join">
+          <div class="content">{{ item.pVenta }} </div>
+        </td>
+        <td class="not-join">
+          <div class="content"> {{ item.vendedor }} </div>
+        </td>
+        <td class="not-join">
+          <div class="global-center"><ion-icon name="add-circle"></ion-icon></div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <ion-card *ngIf="mostrarCard" [style.top.px]="cardTop" [style.left.px]="cardLeft">
+    <ion-card-content>
+      Contenido del ion-card
+    </ion-card-content>
+  </ion-card>
+</ion-grid>
+
+
+
+<!-- <ion-content>
   <ion-list class="buscador">
   <ion-row>
     <ion-col size="4">
@@ -142,4 +226,4 @@
       </ion-col>
         <div></div>
   </ion-row>
-</ion-content>
+</ion-content> -->

@@ -1,4 +1,119 @@
-.buscador{
+ion-toolbar {
+
+    --background: var(--ion-color-tertiary);
+    color: #fff;
+   
+    .tolbar-title {
+        display: flex !important;
+        padding-left: 5%;
+        padding-top: 10%;
+        color: var(--ion-color-primary);
+        
+        img {
+            height: 5vh;
+            margin: 2%;
+        }
+
+        .letter {
+            font-size: .8em;
+            font-weight: 600;
+
+        }
+    }
+}
+
+.searchs-inputs {
+    margin-top: 0;
+    padding-left: 2%;
+    padding-right: 2%;
+
+    .stacked-inputs {
+        //background-color: red;
+        font-size: .7em;
+
+        ion-label {
+            color: var(--ion-color-primary);
+        }
+
+        ion-item {
+            border: 1px solid #BEBEBE;
+            margin-top: 1%;
+            height: 4.5vh !important;
+            font-size: 1em;
+        }
+    }
+}
+
+.button-search {
+    padding-left: 2%;
+    padding-right: 4%;
+}
+
+.table-data {
+    margin-left: 2%;
+    margin-right: 2%;
+
+
+    .cabecera {
+        color: var(--ion-color-primary);
+        font-size: .7em;
+        font-weight: bold;
+       
+    }
+
+    .data {
+        font-size: .7em;
+
+        .join {
+            
+            border: hidden;
+            /* background-color: red;
+            --background: red !important; */
+            .content {
+                display: flex;
+                align-items: center;
+                height: 4vh;
+                border: none;
+                background-color: white;
+                margin-top: 1vh;
+                font-weight: 600;
+                //margin-bottom: 1%;
+            }
+        }
+
+        .not-join{
+            border: hidden;
+            padding-left: 1vh;
+            //padding-right: 1vh;
+            
+            .content {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: 4vh;
+                margin-top: 1vh;
+                background-color: white;
+
+               
+            }
+            ion-icon {
+                font-size: 1.5em;
+                color: var(--ion-color-success);
+            }
+        }
+        
+    }
+
+}
+.fila-seleccionada {
+    background-color: lightblue;
+  }
+  ion-card {
+    position: absolute;
+    width: 70%;
+    z-index: 999; /* Asegura que el ion-card esté por encima del resto del contenido */
+  }
+/* .buscador{
     margin-top: 50px;
 }
 
@@ -29,4 +144,4 @@
             }
         }
     }
-}
+} */
