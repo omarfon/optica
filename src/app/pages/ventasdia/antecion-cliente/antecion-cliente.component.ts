@@ -3,13 +3,14 @@ import { Router } from '@angular/router';
 import { ModalController } from '@ionic/angular';
 import { ModalStockSearchComponent } from './modal-stock-search/modal-stock-search.component';
 import { ModalDetailRegisterComponent } from './modal-detail-register/modal-detail-register.component';
+import { Camera, CameraResultType } from '@capacitor/camera';
 
 @Component({
   selector: 'app-antecion-cliente',
   templateUrl: './antecion-cliente.component.html',
   styleUrls: ['./antecion-cliente.component.scss'],
 })
-export class AntecionClienteComponent  implements OnInit {
+export class AntecionClienteComponent implements OnInit {
 
   constructor(
     public router: Router,
@@ -17,8 +18,8 @@ export class AntecionClienteComponent  implements OnInit {
   ) { }
 
 
-  ngOnInit() {}
-  
+  ngOnInit() { }
+
   exit_menu() {
     this.router.navigate(['/home/ventasdia'])
   }
@@ -28,28 +29,28 @@ export class AntecionClienteComponent  implements OnInit {
       placeholder: null,
       type_input: 'normal',
       type_data: 'text',
-      col:6
+      col: 6
     },
     {
       label: "Nombre cliente",
       placeholder: null,
       type_input: 'normal',
       type_data: 'text',
-      col:6
+      col: 6
     },
     {
       label: "Compañia",
       placeholder: null,
       type_input: 'select',
       type_data: 'text',
-      col:6
+      col: 6
     },
     {
       label: "Fecha",
       placeholder: null,
       type_input: 'date',
       type_data: 'date',
-      col:6
+      col: 6
     }
     ,
     {
@@ -57,56 +58,56 @@ export class AntecionClienteComponent  implements OnInit {
       placeholder: null,
       type_input: 'select',
       type_data: 'text',
-      col:6
+      col: 6
     },
     {
       label: "00160",
       placeholder: null,
       type_input: 'select',
       type_data: 'text',
-      col:6
+      col: 6
     },
     {
       label: "Moneda",
       placeholder: null,
       type_input: 'select',
       type_data: 'text',
-      col:6
+      col: 6
     },
     {
       label: "Tipo de Factura",
       placeholder: null,
       type_input: 'select',
       type_data: 'text',
-      col:6
+      col: 6
     },
     {
       label: "Documento",
       placeholder: null,
       type_input: 'select',
       type_data: 'text',
-      col:6
+      col: 6
     },
     {
       label: "Tipo de venta",
       placeholder: null,
       type_input: 'select',
       type_data: 'text',
-      col:6
+      col: 6
     },
     {
       label: "Edad",
       placeholder: null,
       type_input: 'normal',
       type_data: 'text',
-      col:3
+      col: 3
     },
     {
       label: "Celular",
       placeholder: null,
       type_input: 'normal',
       type_data: 'text',
-      col:3
+      col: 3
     }
     ,
     {
@@ -114,9 +115,9 @@ export class AntecionClienteComponent  implements OnInit {
       placeholder: null,
       type_input: 'normal',
       type_data: 'text',
-      col:6
+      col: 6
     }
-    
+
   ]
   detail_lente = [
     {
@@ -124,28 +125,28 @@ export class AntecionClienteComponent  implements OnInit {
       placeholder: null,
       type_input: 'select',
       type_data: 'text',
-      col:6
+      col: 6
     },
     {
       label: "Material",
       placeholder: null,
       type_input: 'select',
       type_data: 'text',
-      col:6
+      col: 6
     },
     {
       label: "Diseño",
       placeholder: null,
       type_input: 'select',
       type_data: 'text',
-      col:6
+      col: 6
     },
     {
       label: "Tratamientos",
       placeholder: null,
       type_input: 'date',
       type_data: 'date',
-      col:6
+      col: 6
     }
     ,
     {
@@ -153,30 +154,30 @@ export class AntecionClienteComponent  implements OnInit {
       placeholder: null,
       type_input: 'select',
       type_data: 'text',
-      col:6
+      col: 6
     },
     {
       label: "Antirreflejos",
       placeholder: null,
       type_input: 'select',
       type_data: 'text',
-      col:6
+      col: 6
     },
     {
       label: "Tecnología",
       placeholder: null,
       type_input: 'select',
       type_data: 'text',
-      col:6
+      col: 6
     },
     {
       label: "Obsequio",
       placeholder: null,
       type_input: 'select',
       type_data: 'text',
-      col:6
+      col: 6
     },
-   
+
   ]
   documents = [
     { codigo: '1', nombre: 'DNI' },
@@ -187,59 +188,80 @@ export class AntecionClienteComponent  implements OnInit {
 
   date_cotizacion = [
     {
-      type : "LEJOS",
-      values : [
+      type: "LEJOS",
+      values: [
 
       ]
     },
     {
-      type : "CERCA",
-      values : [
-        
+      type: "CERCA",
+      values: [
+
       ]
     }
   ]
 
   values = [
     {
-      values : '-0.5'
+      values: '-0.5'
     },
     {
-      values : '1'
-    },{
-      values : '1.5'
+      values: '1'
+    }, {
+      values: '1.5'
     }
   ]
 
   option_checkboxs = [
     {
-      text : "Gas Permeable",
-      col:4
+      text: "Gas Permeable",
+      col: 4
     },
     {
-      text : "Blandos esféricos",
-      col:4
+      text: "Blandos esféricos",
+      col: 4
     },
     {
-      text : "Blandos Tóricos",
-      col:4
+      text: "Blandos Tóricos",
+      col: 4
     }
   ]
-  async openModal() {    
-    const modal = await this.modalCtrl.create({      
+  async openModal() {
+    const modal = await this.modalCtrl.create({
       component: ModalStockSearchComponent,
       cssClass: 'modal-search-stock',
-      backdropDismiss:true
+      backdropDismiss: true
     });
     modal.present();
   }
 
-  async openModalDetailRegister() {    
-    const modal = await this.modalCtrl.create({      
+  async openModalDetailRegister() {
+    const modal = await this.modalCtrl.create({
       component: ModalDetailRegisterComponent,
       cssClass: 'detail-optometra',
-      backdropDismiss:true
+      backdropDismiss: true
     });
     modal.present();
   }
+  // OPCION DE LA CAMERA
+
+  imageData: string | undefined;
+
+  async takePicture() {
+    const image = await Camera.getPhoto({
+      quality: 90,
+      allowEditing: true,
+      resultType: CameraResultType.Uri
+    });
+
+    // image.webPath will contain a path that can be set as an image src.
+    // You can access the original file using image.path, which can be
+    // passed to the Filesystem API to read the raw data of the image,
+    // if desired (or pass resultType: CameraResultType.Base64 to getPhoto)
+    var imageUrl = image.webPath;
+
+    // Can be set to the src of an image now
+    //imageElement.src = imageUrl;
+  };
+
 }
