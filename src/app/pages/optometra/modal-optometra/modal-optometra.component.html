@@ -1,0 +1,403 @@
+<ion-toolbar>
+  <div class="tolbar-title">
+    <div class="global-center">
+      <!-- <ion-icon name="arrow-back"></ion-icon> -->
+    </div>
+    <div class="letter global-center">
+      OPTOMETRIA MEDIDAS
+    </div>
+  </div>
+</ion-toolbar>
+
+<ion-content>
+
+
+  <ion-row>
+    <!-- TIpo de documento -->
+    <ion-grid>
+      <ion-row class="searchs-inputs">
+        <ion-col [size]="item.col" *ngFor="let item of value_searchs">
+          <div *ngIf="item.type_input == 'select'" class="select-inputs">
+            <ion-label> {{item.label}} </ion-label>
+            <ion-item>
+              <ion-select slot="end">
+                <ion-select-option *ngFor="let d of documents" [value]="d.codigo">{{d.nombre}}</ion-select-option>
+              </ion-select>
+            </ion-item>
+          </div>
+
+          <div *ngIf="item.type_input == 'normal'" class="normal-inputs">
+            <ion-label> {{item.label}} </ion-label>
+            <ion-item>
+              <ion-input> </ion-input>
+            </ion-item>
+          </div>
+
+          <div *ngIf="item.type_input == 'date'" class="normal-inputs">
+            <ion-label> {{item.label}} </ion-label>
+            <ion-item>
+              <ion-input type="date" name="date_of_birth"> </ion-input>
+            </ion-item>
+          </div>
+
+        </ion-col>
+
+        <!--  <ion-col size="12" class="medidas global-center">
+        <ion-button>MEDIDAS</ion-button>
+      </ion-col> -->
+      </ion-row>
+
+
+      <ion-row class="first-inputs">
+        <ion-col size="6" class="">
+          <div class="design-input">
+            <ion-label>RANGO OD: </ion-label>
+            <ion-item>
+              <ion-select slot="end">
+                <ion-select-option *ngFor="let d of documents" [value]="d.codigo">{{d.nombre}}</ion-select-option>
+              </ion-select>
+            </ion-item>
+          </div>
+        </ion-col>
+        <ion-col size="6" class="">
+          <div class="design-input">
+            <ion-label>RANGO OI: </ion-label>
+            <ion-item>
+              <ion-select slot="end">
+                <ion-select-option *ngFor="let d of documents" [value]="d.codigo">{{d.nombre}}</ion-select-option>
+              </ion-select>
+            </ion-item>
+          </div>
+        </ion-col>
+        <ion-col size="6" class="">
+          <div class="design-input">
+            <ion-label>ADD CERCA: </ion-label>
+            <ion-item>
+              <ion-select slot="end">
+                <ion-select-option *ngFor="let d of documents" [value]="d.codigo">{{d.nombre}}</ion-select-option>
+              </ion-select>
+            </ion-item>
+          </div>
+        </ion-col>
+        <ion-col size="6" class="">
+          <div class="design-input">
+            <ion-label>ESTADO: </ion-label>
+            <ion-item>
+              <ion-select slot="end">
+                <ion-select-option *ngFor="let d of documents" [value]="d.codigo">{{d.nombre}}</ion-select-option>
+              </ion-select>
+            </ion-item>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-row>
+
+  <br>
+
+  <ion-grid class="table-cotizacion">
+    <ion-grid class="tabla">
+      <table class="table-data">
+        <!-- Cabecera de la tabla -->
+        <thead class="cabecera">
+          <tr>
+            <th style="width: 12%;text-align: center;color: transparent;">- </th>
+            <th style="width: 16%;text-align: center;color: transparent;">- </th>
+            <th style="width: 12%;text-align: center;">ESFERA</th>
+            <th style="width: 12%;text-align: center;">CILINDRO</th>
+            <th style="width: 12%;text-align: center;">EJE</th>
+            <th style="width: 12%;text-align: center;">PRISMA</th>
+            <th style="width: 12%;text-align: center;">AV</th>
+            <th style="width: 12%;text-align: center;">DIP</th>
+          </tr>
+        </thead>
+
+        <!-- Datos de la tabla -->
+        <tbody class="data">
+          <tr *ngFor="let item of date_cotizacion; let i = index">
+            <td>
+              <div class="type-content">
+                {{item.type}}
+              </div>
+            </td>
+            <td>
+              <div class="value-content">
+                <span>DERECHO</span>
+                <span>IZQUIERDO</span>
+              </div>
+            </td>
+            <td>
+              <div class="value-content">
+
+                <ion-select slot="end">
+                  <ion-select-option *ngFor="let item of values">{{item.values}}</ion-select-option>
+                </ion-select>
+
+
+                <ion-select slot="end">
+                  <ion-select-option *ngFor="let item of values">{{item.values}}</ion-select-option>
+                </ion-select>
+
+              </div>
+            </td>
+            <td>
+              <div class="value-content">
+
+                <ion-select slot="end">
+                  <ion-select-option *ngFor="let item of values">{{item.values}}</ion-select-option>
+                </ion-select>
+
+
+                <ion-select slot="end">
+                  <ion-select-option *ngFor="let item of values">{{item.values}}</ion-select-option>
+                </ion-select>
+
+              </div>
+            </td>
+            <td>
+              <div class="value-content">
+
+                <ion-select slot="end">
+                  <ion-select-option *ngFor="let item of values">{{item.values}}</ion-select-option>
+                </ion-select>
+
+
+                <ion-select slot="end">
+                  <ion-select-option *ngFor="let item of values">{{item.values}}</ion-select-option>
+                </ion-select>
+
+              </div>
+            </td>
+            <td>
+              <div class="value-content">
+
+                <ion-select slot="end">
+                  <ion-select-option *ngFor="let item of values">{{item.values}}</ion-select-option>
+                </ion-select>
+
+
+                <ion-select slot="end">
+                  <ion-select-option *ngFor="let item of values">{{item.values}}</ion-select-option>
+                </ion-select>
+
+              </div>
+            </td>
+            <td>
+              <div class="value-content">
+
+                <ion-select slot="end">
+                  <ion-select-option *ngFor="let item of values">{{item.values}}</ion-select-option>
+                </ion-select>
+
+                <div>
+
+                  <ion-select slot="end">
+                    <ion-select-option *ngFor="let item of values">{{item.values}}</ion-select-option>
+                  </ion-select>
+
+                </div>
+              </div>
+            </td>
+            <td>
+              <div class="type-content" style="box-shadow: inset 0px 3px 6px #00000029;background: white;">
+                30
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+    </ion-grid>
+
+
+  </ion-grid>
+
+  <ion-grid class="options-checkboxs">
+    <ion-row>
+      <ion-col size="4" class="">
+        <ion-label>Lente para un solo ojo: </ion-label>
+      </ion-col>
+      <ion-col [size]="item.col" class="" *ngFor="let item of un_solo_ojo">
+        <ion-checkbox labelPlacement="end"> {{item.text}}</ion-checkbox>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-grid class="table-contacto">
+
+
+    <ion-grid class="tabla">
+      <table class="table-data">
+        <!-- Cabecera de la tabla -->
+        <thead class="cabecera">
+          <tr>
+            <th style="width: 12%;text-align: center;color: transparent;">- </th>
+            <th style="width: 16%;text-align: center;color: transparent;">- </th>
+            <th style="width: 12%;text-align: center;">ESFERA</th>
+            <th style="width: 12%;text-align: center;">CILINDRO</th>
+            <th style="width: 12%;text-align: center;">EJE</th>
+            <th style="width: 36%;text-align: center;">RANGO</th>
+          </tr>
+        </thead>
+
+        <!-- Datos de la tabla -->
+        <tbody class="data">
+          <tr *ngFor="let item of date_cotizacion.slice(0, 1); let i = index">
+            <td>
+              <div class="type-content">
+                {{item.type}}
+              </div>
+            </td>
+            <td>
+              <div class="value-content">
+                <span>DERECHO</span>
+                <span>IZQUIERDO</span>
+              </div>
+            </td>
+            <td>
+              <div class="value-content">
+
+                <ion-select slot="end">
+                  <ion-select-option *ngFor="let item of values">{{item.values}}</ion-select-option>
+                </ion-select>
+
+
+                <ion-select slot="end">
+                  <ion-select-option *ngFor="let item of values">{{item.values}}</ion-select-option>
+                </ion-select>
+
+              </div>
+            </td>
+            <td>
+              <div class="value-content">
+
+                <ion-select slot="end">
+                  <ion-select-option *ngFor="let item of values">{{item.values}}</ion-select-option>
+                </ion-select>
+
+
+                <ion-select slot="end">
+                  <ion-select-option *ngFor="let item of values">{{item.values}}</ion-select-option>
+                </ion-select>
+
+              </div>
+            </td>
+            <td>
+              <div class="value-content">
+
+                <ion-select slot="end">
+                  <ion-select-option *ngFor="let item of values">{{item.values}}</ion-select-option>
+                </ion-select>
+
+
+                <ion-select slot="end">
+                  <ion-select-option *ngFor="let item of values">{{item.values}}</ion-select-option>
+                </ion-select>
+
+              </div>
+            </td>
+            <td>
+              <div class="value-content">
+
+                <ion-select slot="end">
+                  <ion-select-option *ngFor="let item of values">{{item.values}}</ion-select-option>
+                </ion-select>
+
+
+                <ion-select slot="end">
+                  <ion-select-option *ngFor="let item of values">{{item.values}}</ion-select-option>
+                </ion-select>
+
+              </div>
+            </td>
+
+
+          </tr>
+        </tbody>
+      </table>
+
+    </ion-grid>
+
+
+  </ion-grid>
+
+  <ion-grid class="options-checkboxs">
+    <ion-row>
+      <ion-col size="4" class="">
+        <ion-label>Lente para un solo ojo: </ion-label>
+      </ion-col>
+      <ion-col [size]="item.col" *ngFor="let item of un_solo_ojo2">
+        <ion-checkbox labelPlacement="end"> {{item.text}}</ion-checkbox>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-grid class="inputs-form-1">
+    <ion-row>
+      <ion-col size="4" class="title ">
+        <ion-label>KERATOMETRIA </ion-label>
+      </ion-col>
+
+      <ion-col size="4">
+        <div class="stacked-inputs">
+          <ion-label>CURVA BASE</ion-label>
+          <ion-item>
+            <ion-select slot="end">
+              <ion-select-option *ngFor="let d of documents" [value]="d.codigo">{{d.nombre}}</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </div>
+      </ion-col>
+      <ion-col size="4">
+        <div class="stacked-inputs">
+          <ion-label>DIAMETRO</ion-label>
+          <ion-item>
+            <ion-select slot="end">
+              <ion-select-option *ngFor="let d of documents" [value]="d.codigo">{{d.nombre}}</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+
+  <ion-grid class="input-anamnesis">
+    <div class="stacked-inputs">
+      <ion-label>ANAMNESIS</ion-label>
+
+      <ion-textarea placeholder="Escribe aquí" [autoGrow]="true">
+      </ion-textarea>
+      
+    </div>
+  </ion-grid>
+
+  <ion-grid class="options-checkboxs">
+    <ion-row>
+      <ion-col size="4" class="">
+        <ion-label>CLIENTE TIENE RECETAS: </ion-label>
+      </ion-col>
+      <ion-col [size]="item.col" *ngFor="let item of un_solo_ojo">
+        <ion-checkbox labelPlacement="end"> {{item.text}}</ion-checkbox>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-grid class="dates-user">
+    <ion-row>
+      <ion-col size="6" class="">
+        <ion-label>Responsable de la refracción: Rubén Mamani Villar </ion-label>
+      </ion-col>
+      <ion-col size="3" class="">
+        <ion-label>03 de Mayo del 2023 </ion-label>
+      </ion-col>
+      <ion-col size="3" class="">
+        <ion-label>08 : 23 : 00 pm </ion-label>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <div class="global-center button-save">
+    <ion-button (click)="smsError()" slot="center">GUARDAR</ion-button>
+  </div>
+</ion-content>

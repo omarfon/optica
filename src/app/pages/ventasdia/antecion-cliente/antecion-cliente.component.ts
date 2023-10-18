@@ -114,7 +114,66 @@ export class AntecionClienteComponent  implements OnInit {
     }
     
   ]
-  
+  detail_lente = [
+    {
+      label: "Familia",
+      placeholder: null,
+      type_input: 'select',
+      type_data: 'text',
+      col:6
+    },
+    {
+      label: "Material",
+      placeholder: null,
+      type_input: 'select',
+      type_data: 'text',
+      col:6
+    },
+    {
+      label: "Diseño",
+      placeholder: null,
+      type_input: 'select',
+      type_data: 'text',
+      col:6
+    },
+    {
+      label: "Tratamientos",
+      placeholder: null,
+      type_input: 'date',
+      type_data: 'date',
+      col:6
+    }
+    ,
+    {
+      label: "Gama",
+      placeholder: null,
+      type_input: 'select',
+      type_data: 'text',
+      col:6
+    },
+    {
+      label: "Antirreflejos",
+      placeholder: null,
+      type_input: 'select',
+      type_data: 'text',
+      col:6
+    },
+    {
+      label: "Tecnología",
+      placeholder: null,
+      type_input: 'select',
+      type_data: 'text',
+      col:6
+    },
+    {
+      label: "Obsequio",
+      placeholder: null,
+      type_input: 'select',
+      type_data: 'text',
+      col:6
+    },
+   
+  ]
   documents = [
     { codigo: '1', nombre: 'DNI' },
     { codigo: '2', nombre: 'Carnet Extrangeria' },
@@ -145,6 +204,21 @@ export class AntecionClienteComponent  implements OnInit {
       values : '1'
     },{
       values : '1.5'
+    }
+  ]
+
+  option_checkboxs = [
+    {
+      text : "Gas Permeable",
+      col:4
+    },
+    {
+      text : "Blandos esféricos",
+      col:4
+    },
+    {
+      text : "Blandos Tóricos",
+      col:4
     }
   ]
 }

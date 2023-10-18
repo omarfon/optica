@@ -15,6 +15,7 @@ import { OptometraComponent } from './pages/optometra/optometra.component';
 import { VentasdiaComponent } from './pages/ventasdia/ventasdia.component';
 import { NavarComponent } from './navar/navar.component';
 import { AntecionClienteComponent } from './pages/ventasdia/antecion-cliente/antecion-cliente.component';
+import { ModalOptometraComponent } from './pages/optometra/modal-optometra/modal-optometra.component';
 
 
 @NgModule({
@@ -25,6 +26,7 @@ import { AntecionClienteComponent } from './pages/ventasdia/antecion-cliente/ant
     VentasComponent,
     VentasdiaComponent,
     OptometraComponent,
+    ModalOptometraComponent,
     NavarComponent,
     AntecionClienteComponent
   ],

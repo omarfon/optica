@@ -1,7 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
-import { IonModal } from '@ionic/angular';
+import { IonModal, ModalController } from '@ionic/angular';
 import { OverlayEventDetail } from '@ionic/core/components';
+import { ModalOptometraComponent } from './modal-optometra/modal-optometra.component';
 @Component({
   selector: 'app-optometra',
   templateUrl: './optometra.component.html',
@@ -16,7 +17,8 @@ export class OptometraComponent  implements OnInit {
   ];
 
   constructor(
-    public router: Router
+    public router: Router,
+    private modalCtrl: ModalController
     ) { }
 
   ngOnInit() {}
@@ -91,10 +93,15 @@ export class OptometraComponent  implements OnInit {
     }
   ]
 
-  // MODAL
-  isModalOpen = false;
+  
 
-  setOpen(isOpen: boolean) {
-    this.isModalOpen = isOpen;
+ 
+  async openModal() {    
+    const modal = await this.modalCtrl.create({      
+      component: ModalOptometraComponent,
+      cssClass: 'detail-optometra',
+      backdropDismiss:true
+    });
+    modal.present();
   }
 }
