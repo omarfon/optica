@@ -1,0 +1,58 @@
+<ion-toolbar>
+  <div class="tolbar-title">
+    <div class="global-center">
+      <!-- <ion-icon name="arrow-back"></ion-icon> -->
+    </div>
+    <div class="letter global-center">
+      BUSQUEDA POR STOCK
+    </div>
+  </div>
+</ion-toolbar>
+
+<ion-content>
+
+
+  <ion-row>
+    <!-- TIpo de documento -->
+    <ion-grid>
+      <ion-row class="searchs-inputs">
+        <ion-col [size]="item.col" *ngFor="let item of value_searchs">
+          <div *ngIf="item.type_input == 'select'" class="stacked-inputs">
+            <ion-label> {{item.label}} </ion-label>
+            <ion-item>
+              <ion-select slot="end">
+                <ion-select-option *ngFor="let d of documents" [value]="d.codigo">{{d.nombre}}</ion-select-option>
+              </ion-select>
+            </ion-item>
+          </div>
+
+          <div *ngIf="item.type_input == 'normal'" class="stacked-inputs">
+            <ion-label> {{item.label}} </ion-label>
+            <ion-item>
+              <ion-input> </ion-input>
+            </ion-item>
+          </div>
+
+          <div *ngIf="item.type_input == 'date'" class="stacked-inputs">
+            <ion-label> {{item.label}} </ion-label>
+            <ion-item>
+              <ion-input type="date" name="date_of_birth"> </ion-input>
+            </ion-item>
+          </div>
+
+        </ion-col>
+      
+      </ion-row>
+
+
+    </ion-grid>
+  </ion-row>
+
+  <br>
+
+
+  <div class="global-center buttons">
+    <ion-button color="success"  (click)="cancel()" >GUARDAR</ion-button>
+    <ion-button color="success" fill="outline" (click)="cancel()" >GRABAR</ion-button>
+  </div>
+</ion-content>

@@ -63,7 +63,11 @@ $font-size-large: 18px;
     top: 0;
     right: 0; 
 }
-
+.modal-search-stock{
+    --height: 75%;
+    --min-height: 75%;
+    --max-height: 75%;
+}
 .custom-alert{
     opacity: 0.9;
     font-weight: bold;

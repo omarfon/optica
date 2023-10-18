@@ -16,6 +16,8 @@ import { VentasdiaComponent } from './pages/ventasdia/ventasdia.component';
 import { NavarComponent } from './navar/navar.component';
 import { AntecionClienteComponent } from './pages/ventasdia/antecion-cliente/antecion-cliente.component';
 import { ModalOptometraComponent } from './pages/optometra/modal-optometra/modal-optometra.component';
+import { ModalStockSearchComponent } from './pages/ventasdia/antecion-cliente/modal-stock-search/modal-stock-search.component';
+import { ModalDetailRegisterComponent } from './pages/ventasdia/antecion-cliente/modal-detail-register/modal-detail-register.component';
 
 
 @NgModule({
@@ -28,7 +30,9 @@ import { ModalOptometraComponent } from './pages/optometra/modal-optometra/modal
     OptometraComponent,
     ModalOptometraComponent,
     NavarComponent,
-    AntecionClienteComponent
+    AntecionClienteComponent,
+    ModalStockSearchComponent,
+    ModalDetailRegisterComponent,
   ],
   imports: [
     BrowserModule,

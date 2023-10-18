@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ModalController } from '@ionic/angular';
+import { ModalStockSearchComponent } from './modal-stock-search/modal-stock-search.component';
+import { ModalDetailRegisterComponent } from './modal-detail-register/modal-detail-register.component';
 
 @Component({
   selector: 'app-antecion-cliente',
@@ -9,7 +12,8 @@ import { Router } from '@angular/router';
 export class AntecionClienteComponent  implements OnInit {
 
   constructor(
-    public router: Router
+    public router: Router,
+    private modalCtrl: ModalController
   ) { }
 
 
@@ -221,4 +225,21 @@ export class AntecionClienteComponent  implements OnInit {
       col:4
     }
   ]
+  async openModal() {    
+    const modal = await this.modalCtrl.create({      
+      component: ModalStockSearchComponent,
+      cssClass: 'modal-search-stock',
+      backdropDismiss:true
+    });
+    modal.present();
+  }
+
+  async openModalDetailRegister() {    
+    const modal = await this.modalCtrl.create({      
+      component: ModalDetailRegisterComponent,
+      cssClass: 'detail-optometra',
+      backdropDismiss:true
+    });
+    modal.present();
+  }
 }
