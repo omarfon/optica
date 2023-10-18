@@ -232,7 +232,9 @@
     </ion-col>
   </ion-row>
 </ion-grid>
-<img [src]="imageData" alt="Imagen tomada">
+<div *ngIf=" imageData" style="padding: 2%;">
+  <img [src]="'data:image/jpeg;base64,' + imageData" alt="Imagen tomada">
+</div>
 <ion-grid class="scan-input">
   <ion-row class="searchs-inputs">
     <ion-col size="12"><p>Producto por código</p></ion-col>

@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { ModalController } from '@ionic/angular';
 import { ModalStockSearchComponent } from './modal-stock-search/modal-stock-search.component';
 import { ModalDetailRegisterComponent } from './modal-detail-register/modal-detail-register.component';
-import { Camera, CameraResultType } from '@capacitor/camera';
+import { Camera, CameraResultType , CameraSource } from '@capacitor/camera';
 
 @Component({
   selector: 'app-antecion-cliente',
@@ -251,9 +251,11 @@ export class AntecionClienteComponent implements OnInit {
     const image = await Camera.getPhoto({
       quality: 90,
       allowEditing: true,
-      resultType: CameraResultType.Uri
+      resultType: CameraResultType.Base64,
+      source : CameraSource.Camera
     });
-
+    console.log("image.base64String", image.base64String);
+    this.imageData = image.base64String
     // image.webPath will contain a path that can be set as an image src.
     // You can access the original file using image.path, which can be
     // passed to the Filesystem API to read the raw data of the image,
