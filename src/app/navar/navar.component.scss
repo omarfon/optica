@@ -1,33 +1,42 @@
 ion-header {
+    
     ion-toolbar {
-        height: 8vh;
+        height: 7vh;
         --background: var(--ion-color-secondary);
         color: #fff;
 
-        .container {
-            --background: var(--ion-color-secondary);
+        /* .container {
+            
             padding-left: 2%;
             padding-right: 2%;
             display: flex;
             align-items: center;
-            justify-content: space-between;
+           // justify-content: space-between;
 
             .left-title {
+                background-color: red;
                 .tolbar-title {
-                    display: flex !important;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
 
                     img {
                         height: 5vh;
-                        margin: 2%;
+                        padding-left: 2%;
+                        padding-right: 2%;
                     }
 
                     .letter {
-                        font-size: .8em;
+                        font-size:1.5em;
+                        font-weight: 500;
+                        padding-left: 2%;
+                        padding-right: 2%;
                     }
                 }
             }
 
             .right-title {
+                background-color: blue;
                 ion-avatar {
                     display: flex;
                 }
@@ -40,8 +49,43 @@ ion-header {
                     font-size: 7em;
                 }
             }
-        }
+        } */
+        .menu {
+            padding-left: 2%;
+            padding-right: 2%;
+            .left-section {
+                display: flex;
+                
+                p {
+                    font-size: 1.2em;
+                    font-weight: 600;
+                    /* padding-left: 5%;
+                    width: 100%!important; */
+                }
+            }
+           
+            .right-section {
+                display: flex;
+                align-items: center;
+                justify-content: end;
+               // background-color: blue;
 
+                .text-user {
+                    font-size: .9em;
+                    text-align: end;
+                    div {
+                        padding-top: 2%;
+                        opacity: 0.7;
+                    }
+                }
+                ion-img {
+                    height: 6vh;
+                }
+                ion-icon {
+                    font-size: 1.5em;
+                }
+            }
+        }
     }
 
 

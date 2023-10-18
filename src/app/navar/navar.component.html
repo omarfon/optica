@@ -1,12 +1,45 @@
 <ion-header>
   <ion-toolbar>
-    <div class="container ">
+    <ion-row class="menu">
+      <ion-col size="6" class="left-section">
+
+        <div  class="global-center " style="margin-right: 2%;">
+          <img routerLink="/home" src="./assets/icono.svg" alt="">
+        </div>
+        <div class="global-center">
+          <p>Optometría medidas</p>
+        </div>
+
+      </ion-col>
+      <ion-col size="6" class="right-section">
+
+        <div class="text-user">
+          <div>
+            Ruben Mamani Villar
+          </div>
+          <div>
+            Ver perfil
+          </div>
+        </div>
+        <div class="global-center">
+          <ion-img class="user-icon" src="./assets/avatar.png"></ion-img>
+        </div>
+        <div class="global-center">
+          <ion-icon  name="notifications"></ion-icon>
+        </div>
+
+      </ion-col>
+    </ion-row>
+    <!-- <div class="container ">
 
       <div class="left-title" routerLink="/home">
         <div class="tolbar-title">
-          <img src="./assets/icono.svg" alt="">
+          <div class="global-center">
+
+            <img src="./assets/icono.svg" alt="">
+          </div>
           <div class="letter global-center">
-            Optica<br> Precisión
+            Optometría medidas
           </div>
         </div>
       </div>
@@ -22,9 +55,10 @@
           </div>
         </ion-avatar>
       </div>
-    </div>
+    </div> -->
   </ion-toolbar>
 </ion-header>
+
 <ion-content>
   <router-outlet></router-outlet>
 </ion-content>
