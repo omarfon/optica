@@ -3,7 +3,7 @@
     <ion-row class="menu">
       <ion-col size="6" class="left-section">
 
-        <div  class="global-center " style="margin-right: 2%;">
+        <div class="global-center " style="margin-right: 2%;">
           <img routerLink="/home" src="./assets/icono.svg" alt="">
         </div>
         <div class="global-center">
@@ -17,7 +17,7 @@
           <div>
             Ruben Mamani Villar
           </div>
-          <div>
+          <div (click)="viewUserPerfil(true)">
             Ver perfil
           </div>
         </div>
@@ -25,7 +25,7 @@
           <ion-img class="user-icon" src="./assets/avatar.png"></ion-img>
         </div>
         <div class="global-center">
-          <ion-icon  name="notifications"></ion-icon>
+          <ion-icon name="notifications"></ion-icon>
         </div>
 
       </ion-col>
@@ -58,7 +58,51 @@
     </div> -->
   </ion-toolbar>
 </ion-header>
+<div *ngIf="boolviewUserPerfil" class="sub-menu-show">
+  <ion-grid class="info-user">
+    <ion-row>
+      <ion-col size="12" class="image">
+        <ion-img src="./assets/avatar.png"></ion-img>
+      </ion-col>
+      <ion-col size="12">
+        <div class="stacked-inputs">
+          <ion-label>Nombre</ion-label>
+          <ion-item>
+            <ion-input> </ion-input>
+          </ion-item>
+        </div>
+      </ion-col>
+      <ion-col size="6">
+        <div class="stacked-inputs">
+          <ion-label>Código </ion-label>
+          <ion-item>
+            <ion-input> </ion-input>
+          </ion-item>
+        </div>
+      </ion-col>
+      <ion-col size="6">
+        <div class="stacked-inputs">
+          <ion-label>Tienda / Local </ion-label>
+          <ion-item>
+            <ion-input> </ion-input>
+          </ion-item>
+        </div>
+      </ion-col>
+      <ion-col size="12">
+        <div class="stacked-inputs">
+          <ion-label>Cargo</ion-label>
+          <ion-item>
+            <ion-input> </ion-input>
+          </ion-item>
+        </div>
+      </ion-col>
+      <ion-col size="12" class="global-center">
+        <ion-button (click)="viewUserPerfil(false)" fill="clear" color="success">Cerrar Sesión</ion-button>
 
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</div>
 <ion-content>
   <router-outlet></router-outlet>
 </ion-content>
