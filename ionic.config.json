@@ -2,7 +2,7 @@
   "name": "optica",
   "integrations": {
     "capacitor": {
-      "enabled": false
+      
     },
     "cordova": {}
   },
