@@ -19,10 +19,82 @@ export class ModalOptometraComponent  implements OnInit {
   date_user: DateUser = new DateUser();
   ngOnInit() {
     this.date_user = JSON.parse(sessionStorage.getItem('save_cotizacion')!);
+    this.loadDatesPaciente(this.date_user.personaMast)
   }
 
   setOpen(value : any){
     
+  }
+  value_searchs : any [] = []
+  loadDatesPaciente(data : any){
+    this.value_searchs = [
+      {
+        label: "Tipo de Documento",
+        placeholder: null,
+        type_input: 'normal',
+        type_data: 'text',
+        value: data.tipoDocumento,
+        col:6
+      },
+      {
+        label: "Número de Documento",
+        placeholder: null,
+        type_input: 'normal',
+        type_data: 'text',
+        value: data.documentoIdentidad,
+        col:6
+      },
+      {
+        label: "Nombre",
+        placeholder: null,
+        type_input: 'normal',
+        type_data: 'text',
+        value: data.nombreCompleto,
+        col:6
+      },
+      {
+        label: "Sexo",
+        placeholder: null,
+        type_input: 'normal',
+        type_data: 'date',
+        value: data.sexo,
+        col:6
+      }
+      ,
+      {
+        label: "Enfermedad Preexistentes",
+        placeholder: null,
+        type_input: 'normal',
+        type_data: 'text',
+        value: data.enfermedadGraveFlag,
+        col:6
+      },
+      {
+        label: "Edad",
+        placeholder: null,
+        type_input: 'normal',
+        type_data: 'text',
+        value : data.actividadEconomica,
+        col:6
+      },
+      {
+        label: "Profesión",
+        placeholder: null,
+        type_input: 'normal',
+        type_data: 'text',
+        value : "Cirujano",
+        col:6
+      },
+      {
+        label: "Correo",
+        placeholder: null,
+        type_input: 'normal',
+        type_data: 'text',
+        value : data.correoElectronico,
+        col:6
+      }
+      
+    ]
   }
   cancel() {
     return this.modalCtrl.dismiss(null, 'cancel');
@@ -33,80 +105,8 @@ export class ModalOptometraComponent  implements OnInit {
     { codigo: '3', nombre: 'Pasaporte' },    
   ];
   
-  value_searchs = [
-    {
-      label: "Tipo de Documento",
-      placeholder: null,
-      type_input: 'select',
-      type_data: 'text',
-      col:6
-    },
-    {
-      label: "Número de Documento",
-      placeholder: null,
-      type_input: 'select',
-      type_data: 'text',
-      col:6
-    },
-    {
-      label: "Nombre",
-      placeholder: null,
-      type_input: 'normal',
-      type_data: 'text',
-      col:6
-    },
-    {
-      label: "Sexo",
-      placeholder: null,
-      type_input: 'select',
-      type_data: 'date',
-      col:6
-    }
-    ,
-    {
-      label: "Enfermedad Preexistentes",
-      placeholder: null,
-      type_input: 'select',
-      type_data: 'text',
-      col:6
-    },
-    {
-      label: "Edad",
-      placeholder: null,
-      type_input: 'select',
-      type_data: 'text',
-      col:6
-    },
-    {
-      label: "Profesión",
-      placeholder: null,
-      type_input: 'select',
-      type_data: 'text',
-      col:6
-    },
-    {
-      label: "Correo",
-      placeholder: null,
-      type_input: 'select',
-      type_data: 'text',
-      col:6
-    }
-    
-  ]
-  date_cotizacion = [
-    {
-      type : "LEJOS",
-      values : [
-
-      ]
-    },
-    {
-      type : "CERCA",
-      values : [
-        
-      ]
-    }
-  ]
+  
+ 
 
   values = [
     {

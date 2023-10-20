@@ -68,6 +68,7 @@ ion-toolbar {
         }
 
         ion-item {
+            color: var(--ion-color-lines);
             --background:var(--ion-color-tertiary);
             border: 1px solid var(--ion-color-primary);
             width: 60%;

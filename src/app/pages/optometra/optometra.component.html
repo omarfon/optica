@@ -34,12 +34,12 @@
       </ion-col>
 
       <ion-col size="12" class="medidas global-center">
-        <ion-button (click)="searhPaciente()">MEDIDAS</ion-button>
+        <ion-button (click)="searhPaciente()">BUSCAR</ion-button>
       </ion-col>
     </ion-row>
 
 
-    <ion-row class="first-inputs">
+    <ion-row class="first-inputs" *ngIf="searched_pacient">
       <ion-col size="6" class="">
         <div class="design-input">
           <ion-label>RANGO OD: </ion-label>
@@ -84,7 +84,7 @@
   </ion-grid>
 </ion-row>
 <br>
-<ion-grid class="table-cotizacion">
+<ion-grid class="table-cotizacion" *ngIf="searched_pacient">
 
 
   <ion-grid class="tabla">
@@ -192,7 +192,8 @@
           </td>
           <td>
             <div class="type-content1">
-              {{ date_user.ultimaMedicion.cdipod}}
+              <ion-input [(ngModel)]="date_user.ultimaMedicion.ldipod"></ion-input>
+              
             </div>
           </td>
         </tr>
@@ -200,7 +201,7 @@
         <tr>
           <td>
             <div class="type-content" style="font-size: .7em;">
-              CERCA
+              INTERMEDIO
             </div>
           </td>
           <td>
@@ -212,26 +213,12 @@
           <td>
             <div class="value-content">
 
-              <ion-select slot="end" [(ngModel)]="date_user.ultimaMedicion.cesferaOD">
+              <ion-select slot="end" [(ngModel)]="date_user.ultimaMedicion.iesferaOD">
                 <ion-select-option [value]="item.values" *ngFor="let item of values">{{item.name}}</ion-select-option>
               </ion-select>
 
 
-              <ion-select slot="end" [(ngModel)]="date_user.ultimaMedicion.cesferaOI">
-                <ion-select-option [value]="item.values" *ngFor="let item of values">{{item.name}}</ion-select-option>
-              </ion-select>
-
-            </div>
-          </td>
-          <td>
-            <div class="value-content">
-
-              <ion-select slot="end" [(ngModel)]="date_user.ultimaMedicion.ccilindroOD">
-                <ion-select-option [value]="item.values" *ngFor="let item of values">{{item.name}}</ion-select-option>
-              </ion-select>
-
-
-              <ion-select slot="end" [(ngModel)]="date_user.ultimaMedicion.ccilindroOI">
+              <ion-select slot="end" [(ngModel)]="date_user.ultimaMedicion.iesferaOI">
                 <ion-select-option [value]="item.values" *ngFor="let item of values">{{item.name}}</ion-select-option>
               </ion-select>
 
@@ -240,26 +227,12 @@
           <td>
             <div class="value-content">
 
-              <ion-select slot="end" [(ngModel)]="date_user.ultimaMedicion.cejeOD">
+              <ion-select slot="end" [(ngModel)]="date_user.ultimaMedicion.icilindroOD">
                 <ion-select-option [value]="item.values" *ngFor="let item of values">{{item.name}}</ion-select-option>
               </ion-select>
 
 
-              <ion-select slot="end" [(ngModel)]="date_user.ultimaMedicion.cejeOI">
-                <ion-select-option [value]="item.values" *ngFor="let item of values">{{item.name}}</ion-select-option>
-              </ion-select>
-
-            </div>
-          </td>
-          <td>
-            <div class="value-content">
-
-              <ion-select slot="end" [(ngModel)]="date_user.ultimaMedicion.cprismaOD">
-                <ion-select-option [value]="item.values" *ngFor="let item of values">{{item.name}}</ion-select-option>
-              </ion-select>
-
-
-              <ion-select slot="end" [(ngModel)]="date_user.ultimaMedicion.cprismaOI">
+              <ion-select slot="end" [(ngModel)]="date_user.ultimaMedicion.icilindroOI">
                 <ion-select-option [value]="item.values" *ngFor="let item of values">{{item.name}}</ion-select-option>
               </ion-select>
 
@@ -268,12 +241,40 @@
           <td>
             <div class="value-content">
 
-              <ion-select slot="end" [(ngModel)]="date_user.ultimaMedicion.cavod">
+              <ion-select slot="end" [(ngModel)]="date_user.ultimaMedicion.iejeOD">
+                <ion-select-option [value]="item.values" *ngFor="let item of values">{{item.name}}</ion-select-option>
+              </ion-select>
+
+
+              <ion-select slot="end" [(ngModel)]="date_user.ultimaMedicion.iejeOI">
+                <ion-select-option [value]="item.values" *ngFor="let item of values">{{item.name}}</ion-select-option>
+              </ion-select>
+
+            </div>
+          </td>
+          <td>
+            <div class="value-content">
+
+              <ion-select slot="end" [(ngModel)]="date_user.ultimaMedicion.iprismaOD">
+                <ion-select-option [value]="item.values" *ngFor="let item of values">{{item.name}}</ion-select-option>
+              </ion-select>
+
+
+              <ion-select slot="end" [(ngModel)]="date_user.ultimaMedicion.iprismaOI">
+                <ion-select-option [value]="item.values" *ngFor="let item of values">{{item.name}}</ion-select-option>
+              </ion-select>
+
+            </div>
+          </td>
+          <td>
+            <div class="value-content">
+
+              <ion-select slot="end" [(ngModel)]="date_user.ultimaMedicion.iavod">
                 <ion-select-option [value]="item.values" *ngFor="let item of values">{{item.name}}</ion-select-option>
               </ion-select>
 
               <div>
-                <ion-select slot="end" [(ngModel)]="date_user.ultimaMedicion.cavoi">
+                <ion-select slot="end" [(ngModel)]="date_user.ultimaMedicion.iavoi">
                   <ion-select-option [value]="item.values" *ngFor="let item of values">{{item.name}}</ion-select-option>
                 </ion-select>
 
@@ -282,7 +283,7 @@
           </td>
           <td>
             <div class="type-content1">
-              {{ date_user.ultimaMedicion.cdipod}}
+              <ion-input [(ngModel)]="date_user.ultimaMedicion.idipod"></ion-input>
             </div>
         </tr>
 
@@ -373,7 +374,7 @@
           </td>
           <td>
             <div class="type-content1">
-              {{ date_user.ultimaMedicion.cdipod}}
+              <ion-input [(ngModel)]="date_user.ultimaMedicion.cdipod"></ion-input>
             </div>
           </td>
         </tr>
@@ -385,7 +386,7 @@
 
 </ion-grid>
 
-<ion-grid class="options-checkboxs">
+<ion-grid class="options-checkboxs" *ngIf="searched_pacient">
   <ion-row>
     <ion-col size="4" class="">
       <ion-label>Lente para un solo ojo: </ion-label>
@@ -397,7 +398,7 @@
 </ion-grid>
 
 
-<ion-grid class="table-contacto">
+<ion-grid class="table-contacto" *ngIf="searched_pacient">
 
 
   <ion-grid class="tabla">
@@ -495,7 +496,7 @@
 
 </ion-grid>
 
-<ion-grid class="options-checkboxs">
+<ion-grid class="options-checkboxs" *ngIf="searched_pacient">
   <ion-row>
     <ion-col size="4" class="">
       <ion-label>Lente para un solo ojo: </ion-label>
@@ -506,7 +507,7 @@
   </ion-row>
 </ion-grid>
 
-<ion-grid class="inputs-form-1">
+<ion-grid class="inputs-form-1" *ngIf="searched_pacient">
   <ion-row>
     <ion-col size="4" class="title ">
       <ion-label>KERATOMETRIA </ion-label>
@@ -539,17 +540,17 @@
 </ion-grid>
 
 
-<ion-grid class="input-anamnesis">
+<ion-grid class="input-anamnesis" *ngIf="searched_pacient">
   <div class="stacked-inputs">
     <ion-label>ANAMNESIS</ion-label>
 
-    <ion-textarea placeholder="Escribe aquí" [autoGrow]="true">
+    <ion-textarea [(ngModel)]="date_user.ultimaMedicion.anamnesis" placeholder="Escribe aquí" [autoGrow]="true">
     </ion-textarea>
 
   </div>
 </ion-grid>
 
-<ion-grid class="options-checkboxs">
+<ion-grid class="options-checkboxs" *ngIf="searched_pacient">
   <ion-row>
     <ion-col size="4" class="">
       <ion-label>CLIENTE TIENE RECETAS: </ion-label>
@@ -560,7 +561,7 @@
   </ion-row>
 </ion-grid>
 
-<ion-grid class="dates-user">
+<ion-grid class="dates-user" *ngIf="searched_pacient">
   <ion-row>
     <ion-col size="6" class="">
       <ion-label>Responsable de la refracción: Rubén Mamani Villar </ion-label>
@@ -573,6 +574,6 @@
     </ion-col>
   </ion-row>
 </ion-grid>
-<div class="global-center button-save">
+<div class="global-center button-save" *ngIf="searched_pacient">
   <ion-button slot="center" (click)="openModal()">GUARDAR</ion-button>
 </div>

@@ -32,8 +32,11 @@ ion-toolbar {
         font-size: .7em;
         ion-label {
             color: var(--ion-color-lines);
+            font-weight: 600;
         }
         ion-item {
+            color: var(--ion-color-lines);
+            font-weight: 300;
             background-color: transparent;
             margin-top: 2%;
             height: 4.5vh !important;
@@ -153,7 +156,7 @@ ion-toolbar {
                     height: 4vh;
                     
                 }
-                ion-select {
+                ion-input {
                     width: 100%;
                     background-color: white!important;
                     box-shadow: inset 0px 3px 6px #00000029!important;
