@@ -341,20 +341,10 @@
   <ion-row class="searchs-inputs">
     <ion-col size="6" >
       <div class="select-inputs">
-        <ion-label> Familia </ion-label>
+        <ion-label> Linea | Familia </ion-label>
         <ion-item>
-          <ion-select slot="end">
-            <ion-select-option *ngFor="let d of this.selectFamiliar" >{{d?.descripcionLocal}}</ion-select-option>
-          </ion-select>
-        </ion-item>
-      </div>
-    </ion-col>
-    <ion-col size="6" >
-      <div class="select-inputs">
-        <ion-label> Material </ion-label>
-        <ion-item>
-          <ion-select slot="end">
-            <ion-select-option *ngFor="let d of this.selectMaterial" >{{d.descripcion}}</ion-select-option>
+          <ion-select slot="end" [(ngModel)]="linea" (ngModelChange)="loadDisegno(linea)">
+            <ion-select-option  [value]="d.linea" *ngFor="let d of this.selectFamiliar" >{{d?.descripcionLocal}}</ion-select-option>
           </ion-select>
         </ion-item>
       </div>
@@ -363,12 +353,13 @@
       <div class="select-inputs">
         <ion-label> Diseño </ion-label>
         <ion-item>
-          <ion-select slot="end">
-            <ion-select-option *ngFor="let d of this.selectDisegnos" >{{d.descripcion}}</ion-select-option>
+          <ion-select slot="end" [(ngModel)]="familia"  (ngModelChange)="loadAlls(linea, familia)">
+            <ion-select-option [value]="d.familia" *ngFor="let d of this.selectDisegnos" >{{d.descripcionLocal}}</ion-select-option>
           </ion-select>
         </ion-item>
       </div>
     </ion-col>
+    
     <ion-col size="6" >
       <div class="select-inputs">
         <ion-label> Tratamientos </ion-label>

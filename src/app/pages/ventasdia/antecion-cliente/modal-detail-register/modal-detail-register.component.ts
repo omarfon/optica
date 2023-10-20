@@ -17,6 +17,9 @@ export class ModalDetailRegisterComponent  implements OnInit {
   date_user : DateUser = new DateUser()
   ngOnInit() {
     this.date_user = JSON.parse(sessionStorage.getItem('view_atencion_cliente')!);
+    console.log(this.date_user);
+    
+    this.loadValueSearchs(this.date_user.personaMast);
   }
   
   setOpen(value : any){
@@ -90,115 +93,118 @@ export class ModalDetailRegisterComponent  implements OnInit {
     },
    
   ]
-  value_searchs = [
-    {
-      label: "Compañia",
-      placeholder: null,
-      type_input: 'select',
-      type_data: 'text',
-      col:6
-    },
-    {
-      label: "Almacén",
-      placeholder: null,
-      type_input: 'select',
-      type_data: 'text',
-      col:6
-    },
-    {
-      label: "Ruc - Dni",
-      placeholder: null,
-      type_input: 'normal',
-      type_data: 'text',
-      col:6
-    },
-    {
-      label: "Fecha de entrega",
-      placeholder: null,
-      type_input: 'date',
-      type_data: 'date',
-      col:6
-    },
-    {
-      label: "Tipo de Factura",
-      placeholder: null,
-      type_input: 'select',
-      type_data: 'text',
-      col:6
-    },
-   
-    {
-      label: "Documento",
-      placeholder: null,
-      type_input: 'select',
-      type_data: 'text',
-      col:6
-    },
-    {
-      label: "Tipo de venta",
-      placeholder: null,
-      type_input: 'select',
-      type_data: 'text',
-      col:6
-    },
-    {
-      label: "Publicidad",
-      placeholder: null,
-      type_input: 'normal',
-      type_data: 'text',
-      col:6
-    },
-    
-    
-   
-    {
-      label: "Vendedor",
-      placeholder: null,
-      type_input: 'select',
-      type_data: 'text',
-      col:6
-    },
-    {
-      label: "Tipo de Pago",
-      placeholder: null,
-      type_input: 'normal',
-      type_data: 'text',
-      col:4
-    },
-    {
-      label: "-",
-      placeholder: null,
-      type_input: 'normal',
-      type_data: 'text',
-      col:2
-    },
-   
-    {
-      label: "Cancelado",
-      placeholder: null,
-      type_input: 'normal',
-      type_data: 'text',
-      col:6
-    },
-    {
-      label: "Banco",
-      placeholder: null,
-      type_input: 'normal',
-      type_data: 'text',
-      col:4
-    }
-    ,
-    {
-      label: "-",
-      placeholder: null,
-      type_input: 'normal',
-      type_data: 'text',
-      col:2
-    }
-    ,
-   
-    
-  ]
+  value_searchs: any[] = []
+  loadValueSearchs(data) {
+    this.value_searchs = [
+      {
+        label: "Ruc / Dni Cliente",
+        placeholder: null,
+        type_input: 'normal',
+        type_data: 'text',
+        value: data.documento,
+        col: 6
+      },
+      {
+        label: "Nombre cliente",
+        placeholder: null,
+        type_input: 'normal',
+        type_data: 'text',
+        value: data.nombres,
+        col: 6
+      },
+      {
+        label: "Compañia",
+        placeholder: null,
+        type_input: 'normal',
+        type_data: 'text',
+        value: "Royal",
+        col: 6
+      },
+      {
+        label: "Fecha",
+        placeholder: null,
+        type_input: 'normal',
+        type_data: 'date',
+        value: data.ingresoFechaRegistro,
+        col: 6
+      }
+      ,
+      {
+        label: "Almacén",
+        placeholder: null,
+        type_input: 'normal',
+        type_data: 'text',
+        value: data.direccion,
+        col: 6
+      },
+      {
+        label: "00160",
+        placeholder: null,
+        type_input: 'normal',
+        type_data: 'text',
+        value: "000001'",
+        col: 6
+      },
+      {
+        label: "Moneda",
+        placeholder: null,
+        type_input: 'normal',
+        type_data: 'text',
+        value: "SOLES",
+        col: 6
+      },
+      {
+        label: "Tipo de Factura",
+        placeholder: null,
+        type_input: 'normal',
+        type_data: 'text',
+        value: "BOLETA",
+        col: 6
+      },
+      {
+        label: "Documento",
+        placeholder: null,
+        type_input: 'normal',
+        type_data: 'text',
+        value: data.documento,
+        col: 6
+      },
+      {
+        label: "Tipo de venta",
+        placeholder: null,
+        type_input: 'normal',
+        type_data: 'text',
+        value: data.actividadEconomica,
+        col: 6
+      },
+      {
+        label: "Edad",
+        placeholder: null,
+        type_input: 'normal',
+        type_data: 'text',
+        value: "45",
+        col: 3
+      },
+      {
+        label: "Celular",
+        placeholder: null,
+        type_input: 'normal',
+        type_data: 'text',
+        value: data.telefono,
+        col: 3
+      }
+      ,
+      {
+        label: "Correo",
+        placeholder: null,
+        type_input: 'normal',
+        type_data: 'text',
+        value: data.correoElectronico,
+        col: 6
+      }
+
+    ]
+  }
   option_checkboxs = [
     {
       text : "Gas Permeable",

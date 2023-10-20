@@ -3,7 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { LoadingController, ModalController } from '@ionic/angular';
 import { ModalStockSearchComponent } from './modal-stock-search/modal-stock-search.component';
 import { ModalDetailRegisterComponent } from './modal-detail-register/modal-detail-register.component';
-import { Camera, CameraResultType , CameraSource } from '@capacitor/camera';
+import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
 import { VentasDiaService } from 'src/app/services/ventas-dia.service';
 import { DateUser } from '../../optometra/models/info_user';
 
@@ -22,7 +22,7 @@ export class AntecionClienteComponent implements OnInit {
     public ventasDiaService: VentasDiaService
   ) { }
 
-  id : string;
+  id: string;
   ngOnInit() {
     this.route.params.subscribe(params => {
       this.id = params['id'];
@@ -30,13 +30,13 @@ export class AntecionClienteComponent implements OnInit {
     });
 
     this.loadDatosAtencionPaciente();
-    this.loadSelectores();
+    this.loadFamilia();
   }
 
   date_user: DateUser = new DateUser();
-  searched_pacient : boolean = false
-  loadDatosAtencionPaciente(){
-    this.show()    
+  searched_pacient: boolean = false
+  loadDatosAtencionPaciente() {
+    this.show()
 
     this.ventasDiaService.getAtencionCliente(this.id).subscribe(
       response => {
@@ -54,36 +54,56 @@ export class AntecionClienteComponent implements OnInit {
     )
   }
 
-  loadSelectores(){
-    this.loadFamilia();
+  linea: any
+  familia : any
+  loadFamilia() {
+    this.show()
+    this.ventasDiaService.getSelectorFamillia().subscribe(
+      response => {
+        this.selectFamiliar = response        
+        this.hide()
+        this.boolDetail = true;
+      }, err => {
+        console.log(err);
+        this.hide()
+      }
+    )
+
   }
 
-  selectFamiliar : any [] = []
-  selectMaterial : any [] = []
-  selectDisegnos : any [] = []
-  selectTratamientos : any [] = []
-  selectGama : any [] = []
-  selectAntireflejos : any [] = []
-  selectTecnologia : any [] = []
-  selectObsequio : any [] = []
-  boolDetail : boolean = false
-  loadFamilia(){
-    this.ventasDiaService.getSelectorFamillia("01", "0101").subscribe(
+  loadDisegno(linea : any){
+    console.log("LOAD SDISEÑO");
+    this.show()
+    this.ventasDiaService.getSelectorDisegno(linea).subscribe(
       response => {
-        
         console.log(response);
+        this.selectDisegnos = response            
+        this.hide()
 
-        this.selectFamiliar = response.nombreOpciones
-        this.selectMaterial = response.caracteristica1
-        this.selectDisegnos = response.caracteristica2
-        this.selectTratamientos = response.caracteristica3
-        this.selectGama = response.caracteristica4
-        this.selectAntireflejos = response.caracteristica5
-        this.selectTecnologia = response.caracteristica6
-        this.selectObsequio = response.caracteristica7
+      }, err => {
+        console.log(err);
+        this.hide()
+      }
+    )
+  }
+
+  selectFamiliar: any[] = []
+  selectMaterial: any[] = []
+  selectDisegnos: any[] = []
+  selectTratamientos: any[] = []
+  selectGama: any[] = []
+  selectAntireflejos: any[] = []
+  selectTecnologia: any[] = []
+  selectObsequio: any[] = []
+  
+
+  
+  loadAlls(linea : any , familia : any){
+    this.ventasDiaService.getSelectorFamillia1(linea, familia).subscribe(
+      response => {        
+        console.log("CARGAR TODO",response);
         
-        console.log(this.selectFamiliar);
-        
+
         this.boolDetail = true;
         this.hide()
 
@@ -93,12 +113,15 @@ export class AntecionClienteComponent implements OnInit {
       }
     )
   }
+  boolDetail: boolean = false
+  
+ 
   exit_menu() {
     this.router.navigate(['/home/ventasdia'])
   }
 
-  value_searchs : any [] = []
-  loadValueSearchs(data){
+  value_searchs: any[] = []
+  loadValueSearchs(data) {
     this.value_searchs = [
       {
         label: "Ruc / Dni Cliente",
@@ -129,7 +152,7 @@ export class AntecionClienteComponent implements OnInit {
         placeholder: null,
         type_input: 'normal',
         type_data: 'date',
-        value : data.ingresoFechaRegistro,
+        value: data.ingresoFechaRegistro,
         col: 6
       }
       ,
@@ -138,7 +161,7 @@ export class AntecionClienteComponent implements OnInit {
         placeholder: null,
         type_input: 'normal',
         type_data: 'text',
-        value : data.direccion,
+        value: data.direccion,
         col: 6
       },
       {
@@ -146,7 +169,7 @@ export class AntecionClienteComponent implements OnInit {
         placeholder: null,
         type_input: 'normal',
         type_data: 'text',
-        value :"000001'",
+        value: "000001'",
         col: 6
       },
       {
@@ -154,7 +177,7 @@ export class AntecionClienteComponent implements OnInit {
         placeholder: null,
         type_input: 'normal',
         type_data: 'text',
-        value : "SOLES",
+        value: "SOLES",
         col: 6
       },
       {
@@ -162,7 +185,7 @@ export class AntecionClienteComponent implements OnInit {
         placeholder: null,
         type_input: 'normal',
         type_data: 'text',
-        value : "BOLETA",
+        value: "BOLETA",
         col: 6
       },
       {
@@ -170,7 +193,7 @@ export class AntecionClienteComponent implements OnInit {
         placeholder: null,
         type_input: 'normal',
         type_data: 'text',
-        value : data.documento,
+        value: data.documento,
         col: 6
       },
       {
@@ -178,7 +201,7 @@ export class AntecionClienteComponent implements OnInit {
         placeholder: null,
         type_input: 'normal',
         type_data: 'text',
-        value : data.actividadEconomica,
+        value: data.actividadEconomica,
         col: 6
       },
       {
@@ -186,7 +209,7 @@ export class AntecionClienteComponent implements OnInit {
         placeholder: null,
         type_input: 'normal',
         type_data: 'text',
-        value : "45",
+        value: "45",
         col: 3
       },
       {
@@ -194,7 +217,7 @@ export class AntecionClienteComponent implements OnInit {
         placeholder: null,
         type_input: 'normal',
         type_data: 'text',
-        value : data.telefono,
+        value: data.telefono,
         col: 3
       }
       ,
@@ -203,20 +226,20 @@ export class AntecionClienteComponent implements OnInit {
         placeholder: null,
         type_input: 'normal',
         type_data: 'text',
-        value : data.correoElectronico,
+        value: data.correoElectronico,
         col: 6
       }
-  
+
     ]
   }
-  
+
   detail_lente = [
     {
       label: "Familia",
       placeholder: null,
       type_input: 'select',
       type_data: 'text',
-      data : this.selectFamiliar,
+      data: this.selectFamiliar,
       col: 6
     },
     {
@@ -224,7 +247,7 @@ export class AntecionClienteComponent implements OnInit {
       placeholder: null,
       type_input: 'select',
       type_data: 'text',
-      data : this.selectFamiliar,
+      data: this.selectFamiliar,
       col: 6
     },
     {
@@ -232,7 +255,7 @@ export class AntecionClienteComponent implements OnInit {
       placeholder: null,
       type_input: 'select',
       type_data: 'text',
-      data : this.selectFamiliar,
+      data: this.selectFamiliar,
       col: 6
     },
     {
@@ -248,7 +271,7 @@ export class AntecionClienteComponent implements OnInit {
       placeholder: null,
       type_input: 'select',
       type_data: 'text',
-      data : this.selectFamiliar,
+      data: this.selectFamiliar,
       col: 6
     },
     {
@@ -256,7 +279,7 @@ export class AntecionClienteComponent implements OnInit {
       placeholder: null,
       type_input: 'select',
       type_data: 'text',
-      data : this.selectFamiliar,
+      data: this.selectFamiliar,
       col: 6
     },
     {
@@ -264,7 +287,7 @@ export class AntecionClienteComponent implements OnInit {
       placeholder: null,
       type_input: 'select',
       type_data: 'text',
-      data : this.selectFamiliar,
+      data: this.selectFamiliar,
       col: 6
     },
     {
@@ -272,7 +295,7 @@ export class AntecionClienteComponent implements OnInit {
       placeholder: null,
       type_input: 'select',
       type_data: 'text',
-      data : this.selectFamiliar,
+      data: this.selectFamiliar,
       col: 6
     },
 
@@ -284,20 +307,7 @@ export class AntecionClienteComponent implements OnInit {
   ];
 
 
-  date_cotizacion = [
-    {
-      type: "LEJOS",
-      values: [
-
-      ]
-    },
-    {
-      type: "CERCA",
-      values: [
-
-      ]
-    }
-  ]
+  
 
   values = [
     {
@@ -325,7 +335,7 @@ export class AntecionClienteComponent implements OnInit {
     }
   ]
   async openModal() {
-    sessionStorage.setItem('view_atencion_cliente', JSON.stringify(this.date_user));
+    
     const modal = await this.modalCtrl.create({
       component: ModalStockSearchComponent,
       cssClass: 'modal-search-stock',
@@ -335,6 +345,7 @@ export class AntecionClienteComponent implements OnInit {
   }
 
   async openModalDetailRegister() {
+    sessionStorage.setItem('view_atencion_cliente', JSON.stringify(this.date_user));
     const modal = await this.modalCtrl.create({
       component: ModalDetailRegisterComponent,
       cssClass: 'detail-optometra',
@@ -351,7 +362,7 @@ export class AntecionClienteComponent implements OnInit {
       quality: 90,
       allowEditing: true,
       resultType: CameraResultType.Base64,
-      source : CameraSource.Camera
+      source: CameraSource.Camera
     });
     console.log("image.base64String", image.base64String);
     this.imageData = image.base64String

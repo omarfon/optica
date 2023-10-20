@@ -22,21 +22,21 @@
             </ion-select>
           </ion-item>
         </div>
-
+  
         <div *ngIf="item.type_input == 'normal'" class="normal-inputs">
           <ion-label> {{item.label}} </ion-label>
           <ion-item>
-            <ion-input> </ion-input>
+            <ion-input [(ngModel)]="item.value"> </ion-input>
           </ion-item>
         </div>
-
+  
         <div *ngIf="item.type_input == 'date'" class="normal-inputs">
           <ion-label> {{item.label}} </ion-label>
           <ion-item>
             <ion-input type="date" name="date_of_birth"> </ion-input>
           </ion-item>
         </div>
-
+  
       </ion-col>
     </ion-row>
   </ion-grid>
@@ -59,13 +59,13 @@
             <th style="width: 12%;text-align: center;">DIP</th>
           </tr>
         </thead>
-
-        <!-- Datos de la tabla -->
+  
         <tbody class="data">
-          <tr *ngFor="let item of date_cotizacion; let i = index">
+          <!-- LEJOS -->
+          <tr>
             <td>
               <div class="type-content">
-                {{item.type}}
+                LEJOS
               </div>
             </td>
             <td>
@@ -76,89 +76,257 @@
             </td>
             <td>
               <div class="value-content">
-
-                <ion-select slot="end">
-                  <ion-select-option *ngFor="let item of values">{{item.values}}</ion-select-option>
-                </ion-select>
-
-
-                <ion-select slot="end">
-                  <ion-select-option *ngFor="let item of values">{{item.values}}</ion-select-option>
-                </ion-select>
-
+                <ion-input placeholder="+0.00" [(ngModel)]="date_user.ultimaMedicion.lesferaOD"></ion-input>
+               
+  
+                <ion-input placeholder="+0.00" [(ngModel)]="date_user.ultimaMedicion.lesferaOI"></ion-input>
+  
               </div>
             </td>
             <td>
               <div class="value-content">
-
-                <ion-select slot="end">
-                  <ion-select-option *ngFor="let item of values">{{item.values}}</ion-select-option>
-                </ion-select>
-
-
-                <ion-select slot="end">
-                  <ion-select-option *ngFor="let item of values">{{item.values}}</ion-select-option>
-                </ion-select>
-
+                <ion-input placeholder="+0.00" [(ngModel)]="date_user.ultimaMedicion.lcilindroOD"></ion-input>
+              
+                <ion-input placeholder="+0.00" [(ngModel)]="date_user.ultimaMedicion.lcilindroOI"></ion-input>
+                
               </div>
             </td>
             <td>
               <div class="value-content">
-
-                <ion-select slot="end">
-                  <ion-select-option *ngFor="let item of values">{{item.values}}</ion-select-option>
-                </ion-select>
-
-
-                <ion-select slot="end">
-                  <ion-select-option *ngFor="let item of values">{{item.values}}</ion-select-option>
-                </ion-select>
-
+                <ion-input placeholder="+0.00" [(ngModel)]="date_user.ultimaMedicion.lejeOD"></ion-input>
+              
+  
+                <ion-input placeholder="+0.00" [(ngModel)]="date_user.ultimaMedicion.lejeOI"></ion-input>
+              
               </div>
             </td>
             <td>
               <div class="value-content">
-
-                <ion-select slot="end">
-                  <ion-select-option *ngFor="let item of values">{{item.values}}</ion-select-option>
-                </ion-select>
-
-
-                <ion-select slot="end">
-                  <ion-select-option *ngFor="let item of values">{{item.values}}</ion-select-option>
-                </ion-select>
-
+                <ion-input placeholder="+0.00" [(ngModel)]="date_user.ultimaMedicion.lprismaOD"></ion-input>
+           
+                <ion-input placeholder="+0.00" [(ngModel)]="date_user.ultimaMedicion.lprismaOI"></ion-input>
               </div>
             </td>
             <td>
               <div class="value-content">
-
-                <ion-select slot="end">
-                  <ion-select-option *ngFor="let item of values">{{item.values}}</ion-select-option>
-                </ion-select>
-
+                <ion-input placeholder="+0.00" [(ngModel)]="date_user.ultimaMedicion.lavod"></ion-input>
+          
+  
                 <div>
-
-                  <ion-select slot="end">
-                    <ion-select-option *ngFor="let item of values">{{item.values}}</ion-select-option>
-                  </ion-select>
-
+                  <ion-input placeholder="+0.00" [(ngModel)]="date_user.ultimaMedicion.lavoi"></ion-input>
+                
+  
                 </div>
               </div>
             </td>
             <td>
-              <div class="type-content" style="box-shadow: inset 0px 3px 6px #00000029;background: white;">
-                30
+              <div class="type-content1">
+                {{ date_user.ultimaMedicion.ldipod}}
               </div>
             </td>
           </tr>
+          <!-- INTERMEDIO -->
+          <tr>
+            <td>
+              <div class="type-content">
+                INTERMEDIO
+              </div>
+            </td>
+            <td>
+              <div class="value-content">
+                <span>DERECHO</span>
+                <span>IZQUIERDO</span>
+              </div>
+            </td>
+            <td>
+              <div class="value-content">
+                <ion-input placeholder="+0.00" [(ngModel)]="date_user.ultimaMedicion.iesferaOD"></ion-input>
+               
+  
+                <ion-input placeholder="+0.00" [(ngModel)]="date_user.ultimaMedicion.iesferaOI"></ion-input>
+  
+              </div>
+            </td>
+            <td>
+              <div class="value-content">
+                <ion-input placeholder="+0.00" [(ngModel)]="date_user.ultimaMedicion.icilindroOD"></ion-input>
+              
+                <ion-input placeholder="+0.00" [(ngModel)]="date_user.ultimaMedicion.icilindroOI"></ion-input>
+                
+              </div>
+            </td>
+            <td>
+              <div class="value-content">
+                <ion-input placeholder="+0.00" [(ngModel)]="date_user.ultimaMedicion.iejeOD"></ion-input>
+              
+  
+                <ion-input placeholder="+0.00" [(ngModel)]="date_user.ultimaMedicion.iejeOI"></ion-input>
+              
+              </div>
+            </td>
+            <td>
+              <div class="value-content">
+                <ion-input placeholder="+0.00" [(ngModel)]="date_user.ultimaMedicion.iprismaOD"></ion-input>
+           
+                <ion-input placeholder="+0.00" [(ngModel)]="date_user.ultimaMedicion.iprismaOI"></ion-input>
+              </div>
+            </td>
+            <td>
+              <div class="value-content">
+                <ion-input placeholder="+0.00" [(ngModel)]="date_user.ultimaMedicion.iavod"></ion-input>
+          
+  
+                <div>
+                  <ion-input placeholder="+0.00" [(ngModel)]="date_user.ultimaMedicion.iavoi"></ion-input>
+                
+  
+                </div>
+              </div>
+            </td>
+            <td>
+              <div class="type-content1">
+                {{ date_user.ultimaMedicion.idipod}}
+              </div>
+            </td>
+          </tr>
+  
+          <!-- CERCA -->
+          <tr>
+            <td>
+              <div class="type-content">
+                CERCA
+              </div>
+            </td>
+            <td>
+              <div class="value-content">
+                <span>DERECHO</span>
+                <span>IZQUIERDO</span>
+              </div>
+            </td>
+            <td>
+              <div class="value-content">
+                <ion-input placeholder="+0.00" [(ngModel)]="date_user.ultimaMedicion.cesferaOD"></ion-input>
+               
+  
+                <ion-input placeholder="+0.00" [(ngModel)]="date_user.ultimaMedicion.cesferaOI"></ion-input>
+  
+              </div>
+            </td>
+            <td>
+              <div class="value-content">
+                <ion-input placeholder="+0.00" [(ngModel)]="date_user.ultimaMedicion.ccilindroOD"></ion-input>
+              
+                <ion-input placeholder="+0.00" [(ngModel)]="date_user.ultimaMedicion.ccilindroOI"></ion-input>
+                
+              </div>
+            </td>
+            <td>
+              <div class="value-content">
+                <ion-input placeholder="+0.00" [(ngModel)]="date_user.ultimaMedicion.cejeOD"></ion-input>
+              
+  
+                <ion-input placeholder="+0.00" [(ngModel)]="date_user.ultimaMedicion.cejeOI"></ion-input>
+              
+              </div>
+            </td>
+            <td>
+              <div class="value-content">
+                <ion-input placeholder="+0.00" [(ngModel)]="date_user.ultimaMedicion.cprismaOD"></ion-input>
+           
+                <ion-input placeholder="+0.00" [(ngModel)]="date_user.ultimaMedicion.cprismaOI"></ion-input>
+              </div>
+            </td>
+            <td>
+              <div class="value-content">
+                <ion-input placeholder="+0.00" [(ngModel)]="date_user.ultimaMedicion.cavod"></ion-input>
+          
+  
+                <div>
+                  <ion-input placeholder="+0.00" [(ngModel)]="date_user.ultimaMedicion.cavoi"></ion-input>
+                
+  
+                </div>
+              </div>
+            </td>
+            <td>
+              <div class="type-content1">
+                {{ date_user.ultimaMedicion.cdipod}}
+              </div>
+            </td>
+          </tr>
+  
+            <!-- CERCA -->
+            <tr>
+              <td>
+                <div class="type-content">
+                  LENTES DE CONTACTO
+                </div>
+              </td>
+              <td>
+                <div class="value-content">
+                  <span>DERECHO</span>
+                  <span>IZQUIERDO</span>
+                </div>
+              </td>
+              <td>
+                <div class="value-content">
+                  <ion-input placeholder="+0.00" [(ngModel)]="date_user.ultimaMedicion.cesferaOD"></ion-input>
+                 
+    
+                  <ion-input placeholder="+0.00" [(ngModel)]="date_user.ultimaMedicion.cesferaOI"></ion-input>
+    
+                </div>
+              </td>
+              <td>
+                <div class="value-content">
+                  <ion-input placeholder="+0.00" [(ngModel)]="date_user.ultimaMedicion.ccilindroOD"></ion-input>
+                
+                  <ion-input placeholder="+0.00" [(ngModel)]="date_user.ultimaMedicion.ccilindroOI"></ion-input>
+                  
+                </div>
+              </td>
+              <td>
+                <div class="value-content">
+                  <ion-input placeholder="+0.00" [(ngModel)]="date_user.ultimaMedicion.cejeOD"></ion-input>
+                
+    
+                  <ion-input placeholder="+0.00" [(ngModel)]="date_user.ultimaMedicion.cejeOI"></ion-input>
+                
+                </div>
+              </td>
+              <td>
+                <div class="value-content">
+                  <ion-input placeholder="+0.00" [(ngModel)]="date_user.ultimaMedicion.cprismaOD"></ion-input>
+             
+                  <ion-input placeholder="+0.00" [(ngModel)]="date_user.ultimaMedicion.cprismaOI"></ion-input>
+                </div>
+              </td>
+              <td>
+                <div class="value-content">
+                  <ion-input placeholder="+0.00" [(ngModel)]="date_user.ultimaMedicion.cavod"></ion-input>
+            
+    
+                  <div>
+                    <ion-input placeholder="+0.00" [(ngModel)]="date_user.ultimaMedicion.cavoi"></ion-input>
+                  
+    
+                  </div>
+                </div>
+              </td>
+              <td>
+                <div class="type-content1">
+                  {{ date_user.ultimaMedicion.cdipod}}
+                </div>
+              </td>
+            </tr>
+  
         </tbody>
       </table>
       <ion-grid class="options-checkboxs">
         <ion-row>
           <!--  <ion-col size="4" class="">
-          <ion-label>Lente para un solo ojo: </ion-label>
-        </ion-col> -->
+            <ion-label>Lente para un solo ojo: </ion-label>
+          </ion-col> -->
           <ion-col [size]="item.col" class="" *ngFor="let item of option_checkboxs">
             <ion-checkbox labelPlacement="end"> {{item.text}}</ion-checkbox>
           </ion-col>

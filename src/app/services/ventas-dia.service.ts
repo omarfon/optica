@@ -21,7 +21,14 @@ export class VentasDiaService {
     return this.http.get<any>(this.ventas + '/atencion/' + numeroPersona );
   }
 
-  getSelectorFamillia(linea : any , familia : any): Observable<any> {
+  getSelectorFamillia(): Observable<any> {
+    return this.http.get<any>(this.ventas + '/linea');
+  }
+
+  getSelectorDisegno(linea : any): Observable<any> {
+    return this.http.get<any>(this.ventas + '/' + linea);
+  }
+  getSelectorFamillia1(linea : any , familia : any): Observable<any> {
     return this.http.get<any>(this.ventas + '/' + linea + '/' + familia);
   }
 }
