@@ -94,9 +94,23 @@ ion-toolbar {
         //border: 1px solid gray;
 
         .type-content {
+            text-align: center;
+            padding: 2%;
             display: flex;
             align-items: center;
             justify-content: center;
+            //font-size: .7em;
+            //border: 1px solid var(--ion-color-lines);
+            margin: 5%;
+            height: 10vh;
+            color: var(--ion-color-lines);
+            //box-shadow: inset 0px 3px 6px #00000029;
+        }
+        .type-content1 {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1em;
             border: 1px solid var(--ion-color-lines);
             margin: 5%;
             height: 10vh;

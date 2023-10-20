@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AlertController, ModalController } from '@ionic/angular';
+import { DateUser } from 'src/app/pages/optometra/models/info_user';
 
 @Component({
   selector: 'app-modal-detail-register',
@@ -13,9 +14,11 @@ export class ModalDetailRegisterComponent  implements OnInit {
     private modalCtrl: ModalController,
     public alertCtrl: AlertController,
   ) { }
-
-  ngOnInit() {}
-
+  date_user : DateUser = new DateUser()
+  ngOnInit() {
+    this.date_user = JSON.parse(sessionStorage.getItem('view_atencion_cliente')!);
+  }
+  
   setOpen(value : any){
     
   }

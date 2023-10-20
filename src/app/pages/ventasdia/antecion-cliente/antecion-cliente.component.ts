@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { ModalController } from '@ionic/angular';
+import { ActivatedRoute, Router } from '@angular/router';
+import { LoadingController, ModalController } from '@ionic/angular';
 import { ModalStockSearchComponent } from './modal-stock-search/modal-stock-search.component';
 import { ModalDetailRegisterComponent } from './modal-detail-register/modal-detail-register.component';
 import { Camera, CameraResultType , CameraSource } from '@capacitor/camera';
+import { VentasDiaService } from 'src/app/services/ventas-dia.service';
+import { DateUser } from '../../optometra/models/info_user';
 
 @Component({
   selector: 'app-antecion-cliente',
@@ -14,117 +16,207 @@ export class AntecionClienteComponent implements OnInit {
 
   constructor(
     public router: Router,
-    private modalCtrl: ModalController
+    private modalCtrl: ModalController,
+    private route: ActivatedRoute,
+    public loadingController: LoadingController,
+    public ventasDiaService: VentasDiaService
   ) { }
 
+  id : string;
+  ngOnInit() {
+    this.route.params.subscribe(params => {
+      this.id = params['id'];
+      console.log('ID:', this.id);
+    });
 
-  ngOnInit() { }
+    this.loadDatosAtencionPaciente();
+    this.loadSelectores();
+  }
 
+  date_user: DateUser = new DateUser();
+  searched_pacient : boolean = false
+  loadDatosAtencionPaciente(){
+    this.show()    
+
+    this.ventasDiaService.getAtencionCliente(this.id).subscribe(
+      response => {
+        this.loadValueSearchs(response.personaMast);
+        //this.clients = response
+        console.log(response);
+        this.date_user = response
+        this.searched_pacient = true
+        this.hide()
+
+      }, err => {
+        console.log(err);
+        this.hide()
+      }
+    )
+  }
+
+  loadSelectores(){
+    this.loadFamilia();
+  }
+
+  selectFamiliar : any [] = []
+  selectMaterial : any [] = []
+  selectDisegnos : any [] = []
+  selectTratamientos : any [] = []
+  selectGama : any [] = []
+  selectAntireflejos : any [] = []
+  selectTecnologia : any [] = []
+  selectObsequio : any [] = []
+  boolDetail : boolean = false
+  loadFamilia(){
+    this.ventasDiaService.getSelectorFamillia("01", "0101").subscribe(
+      response => {
+        
+        console.log(response);
+
+        this.selectFamiliar = response.nombreOpciones
+        this.selectMaterial = response.caracteristica1
+        this.selectDisegnos = response.caracteristica2
+        this.selectTratamientos = response.caracteristica3
+        this.selectGama = response.caracteristica4
+        this.selectAntireflejos = response.caracteristica5
+        this.selectTecnologia = response.caracteristica6
+        this.selectObsequio = response.caracteristica7
+        
+        console.log(this.selectFamiliar);
+        
+        this.boolDetail = true;
+        this.hide()
+
+      }, err => {
+        console.log(err);
+        this.hide()
+      }
+    )
+  }
   exit_menu() {
     this.router.navigate(['/home/ventasdia'])
   }
-  value_searchs = [
-    {
-      label: "Ruc / Dni Cliente",
-      placeholder: null,
-      type_input: 'normal',
-      type_data: 'text',
-      col: 6
-    },
-    {
-      label: "Nombre cliente",
-      placeholder: null,
-      type_input: 'normal',
-      type_data: 'text',
-      col: 6
-    },
-    {
-      label: "Compañia",
-      placeholder: null,
-      type_input: 'select',
-      type_data: 'text',
-      col: 6
-    },
-    {
-      label: "Fecha",
-      placeholder: null,
-      type_input: 'date',
-      type_data: 'date',
-      col: 6
-    }
-    ,
-    {
-      label: "Almacén",
-      placeholder: null,
-      type_input: 'select',
-      type_data: 'text',
-      col: 6
-    },
-    {
-      label: "00160",
-      placeholder: null,
-      type_input: 'select',
-      type_data: 'text',
-      col: 6
-    },
-    {
-      label: "Moneda",
-      placeholder: null,
-      type_input: 'select',
-      type_data: 'text',
-      col: 6
-    },
-    {
-      label: "Tipo de Factura",
-      placeholder: null,
-      type_input: 'select',
-      type_data: 'text',
-      col: 6
-    },
-    {
-      label: "Documento",
-      placeholder: null,
-      type_input: 'select',
-      type_data: 'text',
-      col: 6
-    },
-    {
-      label: "Tipo de venta",
-      placeholder: null,
-      type_input: 'select',
-      type_data: 'text',
-      col: 6
-    },
-    {
-      label: "Edad",
-      placeholder: null,
-      type_input: 'normal',
-      type_data: 'text',
-      col: 3
-    },
-    {
-      label: "Celular",
-      placeholder: null,
-      type_input: 'normal',
-      type_data: 'text',
-      col: 3
-    }
-    ,
-    {
-      label: "Correo",
-      placeholder: null,
-      type_input: 'normal',
-      type_data: 'text',
-      col: 6
-    }
 
-  ]
+  value_searchs : any [] = []
+  loadValueSearchs(data){
+    this.value_searchs = [
+      {
+        label: "Ruc / Dni Cliente",
+        placeholder: null,
+        type_input: 'normal',
+        type_data: 'text',
+        value: data.documento,
+        col: 6
+      },
+      {
+        label: "Nombre cliente",
+        placeholder: null,
+        type_input: 'normal',
+        type_data: 'text',
+        value: data.nombres,
+        col: 6
+      },
+      {
+        label: "Compañia",
+        placeholder: null,
+        type_input: 'normal',
+        type_data: 'text',
+        value: "Royal",
+        col: 6
+      },
+      {
+        label: "Fecha",
+        placeholder: null,
+        type_input: 'normal',
+        type_data: 'date',
+        value : data.ingresoFechaRegistro,
+        col: 6
+      }
+      ,
+      {
+        label: "Almacén",
+        placeholder: null,
+        type_input: 'normal',
+        type_data: 'text',
+        value : data.direccion,
+        col: 6
+      },
+      {
+        label: "00160",
+        placeholder: null,
+        type_input: 'normal',
+        type_data: 'text',
+        value :"000001'",
+        col: 6
+      },
+      {
+        label: "Moneda",
+        placeholder: null,
+        type_input: 'normal',
+        type_data: 'text',
+        value : "SOLES",
+        col: 6
+      },
+      {
+        label: "Tipo de Factura",
+        placeholder: null,
+        type_input: 'normal',
+        type_data: 'text',
+        value : "BOLETA",
+        col: 6
+      },
+      {
+        label: "Documento",
+        placeholder: null,
+        type_input: 'normal',
+        type_data: 'text',
+        value : data.documento,
+        col: 6
+      },
+      {
+        label: "Tipo de venta",
+        placeholder: null,
+        type_input: 'normal',
+        type_data: 'text',
+        value : data.actividadEconomica,
+        col: 6
+      },
+      {
+        label: "Edad",
+        placeholder: null,
+        type_input: 'normal',
+        type_data: 'text',
+        value : "45",
+        col: 3
+      },
+      {
+        label: "Celular",
+        placeholder: null,
+        type_input: 'normal',
+        type_data: 'text',
+        value : data.telefono,
+        col: 3
+      }
+      ,
+      {
+        label: "Correo",
+        placeholder: null,
+        type_input: 'normal',
+        type_data: 'text',
+        value : data.correoElectronico,
+        col: 6
+      }
+  
+    ]
+  }
+  
   detail_lente = [
     {
       label: "Familia",
       placeholder: null,
       type_input: 'select',
       type_data: 'text',
+      data : this.selectFamiliar,
       col: 6
     },
     {
@@ -132,6 +224,7 @@ export class AntecionClienteComponent implements OnInit {
       placeholder: null,
       type_input: 'select',
       type_data: 'text',
+      data : this.selectFamiliar,
       col: 6
     },
     {
@@ -139,6 +232,7 @@ export class AntecionClienteComponent implements OnInit {
       placeholder: null,
       type_input: 'select',
       type_data: 'text',
+      data : this.selectFamiliar,
       col: 6
     },
     {
@@ -154,6 +248,7 @@ export class AntecionClienteComponent implements OnInit {
       placeholder: null,
       type_input: 'select',
       type_data: 'text',
+      data : this.selectFamiliar,
       col: 6
     },
     {
@@ -161,6 +256,7 @@ export class AntecionClienteComponent implements OnInit {
       placeholder: null,
       type_input: 'select',
       type_data: 'text',
+      data : this.selectFamiliar,
       col: 6
     },
     {
@@ -168,6 +264,7 @@ export class AntecionClienteComponent implements OnInit {
       placeholder: null,
       type_input: 'select',
       type_data: 'text',
+      data : this.selectFamiliar,
       col: 6
     },
     {
@@ -175,6 +272,7 @@ export class AntecionClienteComponent implements OnInit {
       placeholder: null,
       type_input: 'select',
       type_data: 'text',
+      data : this.selectFamiliar,
       col: 6
     },
 
@@ -227,6 +325,7 @@ export class AntecionClienteComponent implements OnInit {
     }
   ]
   async openModal() {
+    sessionStorage.setItem('view_atencion_cliente', JSON.stringify(this.date_user));
     const modal = await this.modalCtrl.create({
       component: ModalStockSearchComponent,
       cssClass: 'modal-search-stock',
@@ -265,5 +364,17 @@ export class AntecionClienteComponent implements OnInit {
     // Can be set to the src of an image now
     //imageElement.src = imageUrl;
   };
+  // LOADINGS
+  async show() {
+    const loading = await this.loadingController.create({
+      message: 'Cargando...', // Puedes personalizar el mensaje
+      duration: 2000, // Duración en milisegundos. O utiliza spinner: 'crescent' para que sea indefinido hasta que lo ocultes manualmente.
+    });
 
-}
+    await loading.present();
+  }
+
+  async hide() {
+    await this.loadingController.dismiss();
+  }
+} 
