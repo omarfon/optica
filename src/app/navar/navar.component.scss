@@ -1,5 +1,5 @@
 ion-header {
-    
+
     ion-toolbar {
         height: 7vh;
         --background: var(--ion-color-secondary);
@@ -53,9 +53,10 @@ ion-header {
         .menu {
             padding-left: 2%;
             padding-right: 2%;
+
             .left-section {
                 display: flex;
-                
+
                 p {
                     font-size: 1.2em;
                     font-weight: 600;
@@ -63,24 +64,27 @@ ion-header {
                     width: 100%!important; */
                 }
             }
-           
+
             .right-section {
                 display: flex;
                 align-items: center;
                 justify-content: end;
-               // background-color: blue;
+                // background-color: blue;
 
                 .text-user {
                     font-size: .9em;
                     text-align: end;
+
                     div {
                         padding-top: 2%;
                         opacity: 0.7;
                     }
                 }
+
                 ion-img {
                     height: 6vh;
                 }
+
                 ion-icon {
                     font-size: 1.5em;
                 }
@@ -91,7 +95,57 @@ ion-header {
 
 }
 
+.sub-menu-show {
+    font-family: 'Poppins', sans-serif;
+    position: absolute;
+    top: 8vh;
+    right: 0;
+    z-index: 99 !important;   
+    width: 40%;
+    border: 1px solid var(--ion-color-lines);
+    border-top-left-radius: 15px;
+    background-color: white;
+    box-shadow: 0px 3px 6px #00000029;
+    border-bottom-left-radius: 15px;
+    .UserInfo {
+        padding-left: 20%;
+        color: #0F5876;
+    }
+
+    ion-label {
+        font-family: 'Poppins', sans-serif;
+        font-size: 12px;
+        font-weight: bold;
+        text-align: center;
+    }
+    .info-user {
+        
+        .image {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            ion-img {
+                height: 8vh;
+            }
+        }
+        .stacked-inputs {
+            //background-color: red;
+            font-size: .7em;
+            ion-label {
+                color: var(--ion-color-secondary);
+            }
+            ion-item {
+                background-color: transparent;
+                margin-top: 2%;
+                height: 4.5vh !important;
+                font-size: 1em;
+                border: 1px solid var(--ion-color-lines);
+                border-radius: 15px;
+            }
+        }
+    }
+}
 
 ion-content {
-    --background: var(--ion-color-tertiary);    
+    --background: var(--ion-color-tertiary);
 }

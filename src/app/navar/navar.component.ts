@@ -5,10 +5,14 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './navar.component.html',
   styleUrls: ['./navar.component.scss'],
 })
-export class NavarComponent  implements OnInit {
+export class NavarComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {}
+  ngOnInit() { }
+  boolviewUserPerfil: boolean = false;
+  viewUserPerfil(bool : any) {
+    this.boolviewUserPerfil = bool
+  }
 
 }
