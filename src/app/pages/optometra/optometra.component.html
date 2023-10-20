@@ -18,7 +18,7 @@
         <div class="stacked-inputs">
           <ion-label>Tipo de documento</ion-label>
           <ion-item>
-            <ion-select slot="end">
+            <ion-select slot="end" [(ngModel)]="type_documento">
               <ion-select-option *ngFor="let d of documents" [value]="d.codigo">{{d.nombre}}</ion-select-option>
             </ion-select>
           </ion-item>
@@ -28,15 +28,13 @@
         <div class="stacked-inputs">
           <ion-label>Número de documento</ion-label>
           <ion-item>
-            <ion-select slot="end">
-              <ion-select-option *ngFor="let d of documents" [value]="d.codigo">{{d.nombre}}</ion-select-option>
-            </ion-select>
+            <ion-input [(ngModel)]="num_documento"></ion-input>
           </ion-item>
         </div>
       </ion-col>
 
       <ion-col size="12" class="medidas global-center">
-        <ion-button>MEDIDAS</ion-button>
+        <ion-button (click)="searhPaciente()">MEDIDAS</ion-button>
       </ion-col>
     </ion-row>
 
@@ -46,8 +44,8 @@
         <div class="design-input">
           <ion-label>RANGO OD: </ion-label>
           <ion-item>
-            <ion-select slot="end">
-              <ion-select-option *ngFor="let d of documents" [value]="d.codigo">{{d.nombre}}</ion-select-option>
+            <ion-select slot="end" [(ngModel)]="date_user.ultimaMedicion.rangoOD">
+              <ion-select-option *ngFor="let d of dates_searchs" [value]="d.values">{{d.name}}</ion-select-option>
             </ion-select>
           </ion-item>
         </div>
@@ -56,8 +54,8 @@
         <div class="design-input">
           <ion-label>RANGO OI: </ion-label>
           <ion-item>
-            <ion-select slot="end">
-              <ion-select-option *ngFor="let d of documents" [value]="d.codigo">{{d.nombre}}</ion-select-option>
+            <ion-select slot="end" [(ngModel)]="date_user.ultimaMedicion.rangoOI">
+              <ion-select-option *ngFor="let d of dates_searchs" [value]="d.values">{{d.name}}</ion-select-option>
             </ion-select>
           </ion-item>
         </div>
@@ -66,8 +64,8 @@
         <div class="design-input">
           <ion-label>ADD CERCA: </ion-label>
           <ion-item>
-            <ion-select slot="end">
-              <ion-select-option *ngFor="let d of documents" [value]="d.codigo">{{d.nombre}}</ion-select-option>
+            <ion-select slot="end" [(ngModel)]="date_user.ultimaMedicion.addCerca">
+              <ion-select-option *ngFor="let d of dates_searchs" [value]="d.values">{{d.name}}</ion-select-option>
             </ion-select>
           </ion-item>
         </div>
@@ -76,8 +74,8 @@
         <div class="design-input">
           <ion-label>ESTADO: </ion-label>
           <ion-item>
-            <ion-select slot="end">
-              <ion-select-option *ngFor="let d of documents" [value]="d.codigo">{{d.nombre}}</ion-select-option>
+            <ion-select slot="end" [(ngModel)]="date_user.ultimaMedicion.estado">
+              <ion-select-option *ngFor="let d of dates_searchs" [value]="d.values">{{d.name}}</ion-select-option>
             </ion-select>
           </ion-item>
         </div>
@@ -107,10 +105,11 @@
 
       <!-- Datos de la tabla -->
       <tbody class="data">
-        <tr *ngFor="let item of date_cotizacion; let i = index">
+        <!-- LEJOS -->
+        <tr>
           <td>
             <div class="type-content">
-              {{item.type}}
+              LEJOS
             </div>
           </td>
           <td>
@@ -122,27 +121,13 @@
           <td>
             <div class="value-content">
 
-              <ion-select slot="end">
-                <ion-select-option *ngFor="let item of values">{{item.values}}</ion-select-option>
+              <ion-select slot="end" [(ngModel)]="date_user.ultimaMedicion.lesferaOD">
+                <ion-select-option [value]="item.values" *ngFor="let item of values">{{item.name}}</ion-select-option>
               </ion-select>
 
 
-              <ion-select slot="end">
-                <ion-select-option *ngFor="let item of values">{{item.values}}</ion-select-option>
-              </ion-select>
-
-            </div>
-          </td>
-          <td>
-            <div class="value-content">
-
-              <ion-select slot="end">
-                <ion-select-option *ngFor="let item of values">{{item.values}}</ion-select-option>
-              </ion-select>
-
-
-              <ion-select slot="end">
-                <ion-select-option *ngFor="let item of values">{{item.values}}</ion-select-option>
+              <ion-select slot="end" [(ngModel)]="date_user.ultimaMedicion.lesferaOI">
+                <ion-select-option [value]="item.values" *ngFor="let item of values">{{item.name}}</ion-select-option>
               </ion-select>
 
             </div>
@@ -150,27 +135,13 @@
           <td>
             <div class="value-content">
 
-              <ion-select slot="end">
-                <ion-select-option *ngFor="let item of values">{{item.values}}</ion-select-option>
+              <ion-select slot="end" [(ngModel)]="date_user.ultimaMedicion.lcilindroOD">
+                <ion-select-option [value]="item.values" *ngFor="let item of values">{{item.name}}</ion-select-option>
               </ion-select>
 
 
-              <ion-select slot="end">
-                <ion-select-option *ngFor="let item of values">{{item.values}}</ion-select-option>
-              </ion-select>
-
-            </div>
-          </td>
-          <td>
-            <div class="value-content">
-
-              <ion-select slot="end">
-                <ion-select-option *ngFor="let item of values">{{item.values}}</ion-select-option>
-              </ion-select>
-
-
-              <ion-select slot="end">
-                <ion-select-option *ngFor="let item of values">{{item.values}}</ion-select-option>
+              <ion-select slot="end" [(ngModel)]="date_user.ultimaMedicion.lcilindroOI">
+                <ion-select-option [value]="item.values" *ngFor="let item of values">{{item.name}}</ion-select-option>
               </ion-select>
 
             </div>
@@ -178,22 +149,231 @@
           <td>
             <div class="value-content">
 
-              <ion-select slot="end">
-                <ion-select-option *ngFor="let item of values">{{item.values}}</ion-select-option>
+              <ion-select slot="end" [(ngModel)]="date_user.ultimaMedicion.lejeOD">
+                <ion-select-option [value]="item.values" *ngFor="let item of values">{{item.name}}</ion-select-option>
+              </ion-select>
+
+
+              <ion-select slot="end" [(ngModel)]="date_user.ultimaMedicion.lejeOI">
+                <ion-select-option [value]="item.values" *ngFor="let item of values">{{item.name}}</ion-select-option>
+              </ion-select>
+
+            </div>
+          </td>
+          <td>
+            <div class="value-content">
+
+              <ion-select slot="end" [(ngModel)]="date_user.ultimaMedicion.lprismaOD">
+                <ion-select-option [value]="item.values" *ngFor="let item of values">{{item.name}}</ion-select-option>
+              </ion-select>
+
+
+              <ion-select slot="end" [(ngModel)]="date_user.ultimaMedicion.lprismaOI">
+                <ion-select-option [value]="item.values" *ngFor="let item of values">{{item.name}}</ion-select-option>
+              </ion-select>
+
+            </div>
+          </td>
+          <td>
+            <div class="value-content">
+
+              <ion-select slot="end" [(ngModel)]="date_user.ultimaMedicion.lavod">
+                <ion-select-option [value]="item.values" *ngFor="let item of values">{{item.name}}</ion-select-option>
               </ion-select>
 
               <div>
 
-                <ion-select slot="end">
-                  <ion-select-option *ngFor="let item of values">{{item.values}}</ion-select-option>
+                <ion-select slot="end" [(ngModel)]="date_user.ultimaMedicion.lavoi">
+                  <ion-select-option [value]="item.values" *ngFor="let item of values">{{item.name}}</ion-select-option>
                 </ion-select>
 
               </div>
             </div>
           </td>
           <td>
-            <div class="type-content" style="box-shadow: inset 0px 3px 6px #00000029;background: white;">
-              30
+            <div class="type-content1">
+              {{ date_user.ultimaMedicion.cdipod}}
+            </div>
+          </td>
+        </tr>
+        <!-- INTERMEDIO -->
+        <tr>
+          <td>
+            <div class="type-content" style="font-size: .7em;">
+              CERCA
+            </div>
+          </td>
+          <td>
+            <div class="value-content">
+              <span>DERECHO</span>
+              <span>IZQUIERDO</span>
+            </div>
+          </td>
+          <td>
+            <div class="value-content">
+
+              <ion-select slot="end" [(ngModel)]="date_user.ultimaMedicion.cesferaOD">
+                <ion-select-option [value]="item.values" *ngFor="let item of values">{{item.name}}</ion-select-option>
+              </ion-select>
+
+
+              <ion-select slot="end" [(ngModel)]="date_user.ultimaMedicion.cesferaOI">
+                <ion-select-option [value]="item.values" *ngFor="let item of values">{{item.name}}</ion-select-option>
+              </ion-select>
+
+            </div>
+          </td>
+          <td>
+            <div class="value-content">
+
+              <ion-select slot="end" [(ngModel)]="date_user.ultimaMedicion.ccilindroOD">
+                <ion-select-option [value]="item.values" *ngFor="let item of values">{{item.name}}</ion-select-option>
+              </ion-select>
+
+
+              <ion-select slot="end" [(ngModel)]="date_user.ultimaMedicion.ccilindroOI">
+                <ion-select-option [value]="item.values" *ngFor="let item of values">{{item.name}}</ion-select-option>
+              </ion-select>
+
+            </div>
+          </td>
+          <td>
+            <div class="value-content">
+
+              <ion-select slot="end" [(ngModel)]="date_user.ultimaMedicion.cejeOD">
+                <ion-select-option [value]="item.values" *ngFor="let item of values">{{item.name}}</ion-select-option>
+              </ion-select>
+
+
+              <ion-select slot="end" [(ngModel)]="date_user.ultimaMedicion.cejeOI">
+                <ion-select-option [value]="item.values" *ngFor="let item of values">{{item.name}}</ion-select-option>
+              </ion-select>
+
+            </div>
+          </td>
+          <td>
+            <div class="value-content">
+
+              <ion-select slot="end" [(ngModel)]="date_user.ultimaMedicion.cprismaOD">
+                <ion-select-option [value]="item.values" *ngFor="let item of values">{{item.name}}</ion-select-option>
+              </ion-select>
+
+
+              <ion-select slot="end" [(ngModel)]="date_user.ultimaMedicion.cprismaOI">
+                <ion-select-option [value]="item.values" *ngFor="let item of values">{{item.name}}</ion-select-option>
+              </ion-select>
+
+            </div>
+          </td>
+          <td>
+            <div class="value-content">
+
+              <ion-select slot="end" [(ngModel)]="date_user.ultimaMedicion.cavod">
+                <ion-select-option [value]="item.values" *ngFor="let item of values">{{item.name}}</ion-select-option>
+              </ion-select>
+
+              <div>
+                <ion-select slot="end" [(ngModel)]="date_user.ultimaMedicion.cavoi">
+                  <ion-select-option [value]="item.values" *ngFor="let item of values">{{item.name}}</ion-select-option>
+                </ion-select>
+
+              </div>
+            </div>
+          </td>
+          <td>
+            <div class="type-content1">
+              {{ date_user.ultimaMedicion.cdipod}}
+            </div>
+        </tr>
+
+        <!-- CERCA -->
+        <tr>
+          <td>
+            <div class="type-content" style="font-size: .7em;">
+              CERCA
+            </div>
+          </td>
+          <td>
+            <div class="value-content">
+              <span>DERECHO</span>
+              <span>IZQUIERDO</span>
+            </div>
+          </td>
+          <td>
+            <div class="value-content">
+
+              <ion-select slot="end" [(ngModel)]="date_user.ultimaMedicion.cesferaOD">
+                <ion-select-option [value]="item.values" *ngFor="let item of values">{{item.name}}</ion-select-option>
+              </ion-select>
+
+
+              <ion-select slot="end" [(ngModel)]="date_user.ultimaMedicion.cesferaOI">
+                <ion-select-option [value]="item.values" *ngFor="let item of values">{{item.name}}</ion-select-option>
+              </ion-select>
+
+            </div>
+          </td>
+          <td>
+            <div class="value-content">
+
+              <ion-select slot="end" [(ngModel)]="date_user.ultimaMedicion.ccilindroOD">
+                <ion-select-option [value]="item.values" *ngFor="let item of values">{{item.name}}</ion-select-option>
+              </ion-select>
+
+
+              <ion-select slot="end" [(ngModel)]="date_user.ultimaMedicion.ccilindroOI">
+                <ion-select-option [value]="item.values" *ngFor="let item of values">{{item.name}}</ion-select-option>
+              </ion-select>
+
+            </div>
+          </td>
+          <td>
+            <div class="value-content">
+
+              <ion-select slot="end" [(ngModel)]="date_user.ultimaMedicion.cejeOD">
+                <ion-select-option [value]="item.values" *ngFor="let item of values">{{item.name}}</ion-select-option>
+              </ion-select>
+
+
+              <ion-select slot="end" [(ngModel)]="date_user.ultimaMedicion.cejeOI">
+                <ion-select-option [value]="item.values" *ngFor="let item of values">{{item.name}}</ion-select-option>
+              </ion-select>
+
+            </div>
+          </td>
+          <td>
+            <div class="value-content">
+
+              <ion-select slot="end" [(ngModel)]="date_user.ultimaMedicion.cprismaOD">
+                <ion-select-option [value]="item.values" *ngFor="let item of values">{{item.name}}</ion-select-option>
+              </ion-select>
+
+
+              <ion-select slot="end" [(ngModel)]="date_user.ultimaMedicion.cprismaOI">
+                <ion-select-option [value]="item.values" *ngFor="let item of values">{{item.name}}</ion-select-option>
+              </ion-select>
+
+            </div>
+          </td>
+          <td>
+            <div class="value-content">
+
+              <ion-select slot="end" [(ngModel)]="date_user.ultimaMedicion.cavod">
+                <ion-select-option [value]="item.values" *ngFor="let item of values">{{item.name}}</ion-select-option>
+              </ion-select>
+
+              <div>
+
+                <ion-select slot="end" [(ngModel)]="date_user.ultimaMedicion.cavoi">
+                  <ion-select-option [value]="item.values" *ngFor="let item of values">{{item.name}}</ion-select-option>
+                </ion-select>
+
+              </div>
+            </div>
+          </td>
+          <td>
+            <div class="type-content1">
+              {{ date_user.ultimaMedicion.cdipod}}
             </div>
           </td>
         </tr>
@@ -236,10 +416,10 @@
 
       <!-- Datos de la tabla -->
       <tbody class="data">
-        <tr *ngFor="let item of date_cotizacion.slice(0, 1); let i = index">
+        <tr>
           <td>
             <div class="type-content">
-              {{item.type}}
+              LENTES DE CONTACTO
             </div>
           </td>
           <td>
@@ -251,27 +431,13 @@
           <td>
             <div class="value-content">
 
-              <ion-select slot="end">
-                <ion-select-option *ngFor="let item of values">{{item.values}}</ion-select-option>
+              <ion-select slot="end" [(ngModel)]="date_user.ultimaMedicion.lenteContactoOD"> 
+                <ion-select-option [value]="item.values" *ngFor="let item of values">{{item.name}}</ion-select-option>
               </ion-select>
 
 
-              <ion-select slot="end">
-                <ion-select-option *ngFor="let item of values">{{item.values}}</ion-select-option>
-              </ion-select>
-
-            </div>
-          </td>
-          <td>
-            <div class="value-content">
-
-              <ion-select slot="end">
-                <ion-select-option *ngFor="let item of values">{{item.values}}</ion-select-option>
-              </ion-select>
-
-
-              <ion-select slot="end">
-                <ion-select-option *ngFor="let item of values">{{item.values}}</ion-select-option>
+              <ion-select slot="end" [(ngModel)]="date_user.ultimaMedicion.lenteContactoOI">
+                <ion-select-option [value]="item.values" *ngFor="let item of values">{{item.name}}</ion-select-option>
               </ion-select>
 
             </div>
@@ -279,13 +445,13 @@
           <td>
             <div class="value-content">
 
-              <ion-select slot="end">
-                <ion-select-option *ngFor="let item of values">{{item.values}}</ion-select-option>
+              <ion-select slot="end" [(ngModel)]="date_user.ultimaMedicion.lenteContactoOD"> 
+                <ion-select-option [value]="item.values" *ngFor="let item of values">{{item.name}}</ion-select-option>
               </ion-select>
 
 
-              <ion-select slot="end">
-                <ion-select-option *ngFor="let item of values">{{item.values}}</ion-select-option>
+              <ion-select slot="end" [(ngModel)]="date_user.ultimaMedicion.lenteContactoOI">
+                <ion-select-option [value]="item.values" *ngFor="let item of values">{{item.name}}</ion-select-option>
               </ion-select>
 
             </div>
@@ -293,13 +459,27 @@
           <td>
             <div class="value-content">
 
-              <ion-select slot="end">
-                <ion-select-option *ngFor="let item of values">{{item.values}}</ion-select-option>
+              <ion-select slot="end" [(ngModel)]="date_user.ultimaMedicion.lenteContactoOD"> 
+                <ion-select-option [value]="item.values" *ngFor="let item of values">{{item.name}}</ion-select-option>
               </ion-select>
 
 
-              <ion-select slot="end">
-                <ion-select-option *ngFor="let item of values">{{item.values}}</ion-select-option>
+              <ion-select slot="end" [(ngModel)]="date_user.ultimaMedicion.lenteContactoOI">
+                <ion-select-option [value]="item.values" *ngFor="let item of values">{{item.name}}</ion-select-option>
+              </ion-select>
+
+            </div>
+          </td>
+          <td>
+            <div class="value-content">
+
+              <ion-select slot="end" [(ngModel)]="date_user.ultimaMedicion.lenteContactoOD"> 
+                <ion-select-option [value]="item.values" *ngFor="let item of values">{{item.name}}</ion-select-option>
+              </ion-select>
+
+
+              <ion-select slot="end" [(ngModel)]="date_user.ultimaMedicion.lenteContactoOI">
+                <ion-select-option [value]="item.values" *ngFor="let item of values">{{item.name}}</ion-select-option>
               </ion-select>
 
             </div>
@@ -334,20 +514,23 @@
 
     <ion-col size="4">
       <div class="stacked-inputs">
-        <ion-label>CURVA BASE</ion-label>
+        <!-- <ion-label>CURVA BASE</ion-label> -->
+        <ion-label>DERECHO</ion-label>
         <ion-item>
-          <ion-select slot="end">
-            <ion-select-option *ngFor="let d of documents" [value]="d.codigo">{{d.nombre}}</ion-select-option>
+          <ion-select slot="end" [(ngModel)]="date_user.ultimaMedicion.keratometriaOD">
+            <ion-select-option [value]="item.values" *ngFor="let item of values">{{item.name}}</ion-select-option>
           </ion-select>
         </ion-item>
       </div>
     </ion-col>
     <ion-col size="4">
       <div class="stacked-inputs">
-        <ion-label>DIAMETRO</ion-label>
+        <!-- <ion-label>DIAMETRO</ion-label> -->
+        <ion-label>IZQUIERDO</ion-label>
+
         <ion-item>
-          <ion-select slot="end">
-            <ion-select-option *ngFor="let d of documents" [value]="d.codigo">{{d.nombre}}</ion-select-option>
+          <ion-select slot="end" [(ngModel)]="date_user.ultimaMedicion.keratometriaOI">
+            <ion-select-option [value]="item.values" *ngFor="let item of values">{{item.name}}</ion-select-option>
           </ion-select>
         </ion-item>
       </div>
@@ -360,7 +543,7 @@
   <div class="stacked-inputs">
     <ion-label>ANAMNESIS</ion-label>
 
-    <ion-textarea placeholder="Escribe aquí" [autoGrow]="true" >
+    <ion-textarea placeholder="Escribe aquí" [autoGrow]="true">
     </ion-textarea>
 
   </div>
@@ -380,7 +563,7 @@
 <ion-grid class="dates-user">
   <ion-row>
     <ion-col size="6" class="">
-      <ion-label>Responsabl de la refracción: Rubén Mamani Villar </ion-label>
+      <ion-label>Responsable de la refracción: Rubén Mamani Villar </ion-label>
     </ion-col>
     <ion-col size="3" class="">
       <ion-label>03 de Mayo del 2023 </ion-label>
@@ -393,9 +576,3 @@
 <div class="global-center button-save">
   <ion-button slot="center" (click)="openModal()">GUARDAR</ion-button>
 </div>
-
-
-
-
-  
- 

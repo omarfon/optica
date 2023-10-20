@@ -9,7 +9,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { LoginComponent } from './pages/login/login.component';
 import { HomeComponent } from './pages/home/home.component';
 import { VentasComponent } from './pages/ventas/ventas.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { OptometraComponent } from './pages/optometra/optometra.component';
 import { VentasdiaComponent } from './pages/ventasdia/ventasdia.component';
@@ -39,7 +39,8 @@ import { ModalDetailRegisterComponent } from './pages/ventasdia/antecion-cliente
     IonicModule.forRoot(),
     AppRoutingModule,
     FormsModule,
-    HttpClientModule],
+    HttpClientModule,
+    ReactiveFormsModule],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
 })

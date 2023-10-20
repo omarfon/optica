@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { AlertController, ModalController } from '@ionic/angular';
+import { AlertController, LoadingController, ModalController } from '@ionic/angular';
+import { DateUser } from '../models/info_user';
+import { OptometriaService } from 'src/app/services/optometria.service';
 
 @Component({
   selector: 'app-modal-optometra',
@@ -11,9 +13,13 @@ export class ModalOptometraComponent  implements OnInit {
   constructor(
     private modalCtrl: ModalController,
     public alertCtrl: AlertController,
+    private optometriaService: OptometriaService,
+    public loadingController: LoadingController
   ) { }
-
-  ngOnInit() {}
+  date_user: DateUser = new DateUser();
+  ngOnInit() {
+    this.date_user = JSON.parse(sessionStorage.getItem('save_cotizacion')!);
+  }
 
   setOpen(value : any){
     
@@ -104,12 +110,24 @@ export class ModalOptometraComponent  implements OnInit {
 
   values = [
     {
-      values : '-0.5'
+      name: '+1.25',
+      values: '+1.25'
     },
     {
-      values : '1'
-    },{
-      values : '1.5'
+      name: '+1.50',
+      values: '+1.50'
+    }, {
+      name: "-0.25",
+      values: "-0.25"
+    }, {
+      name: "+0.00",
+      values: "+0.00"
+    }, {
+      name: "+0.00",
+      values: null,
+    }, {
+      name: '20/20',
+      values: "20/20"
     }
   ]
   un_solo_ojo = [
@@ -153,6 +171,24 @@ export class ModalOptometraComponent  implements OnInit {
     }
   ]
 
+  save_dates (){
+    const data = {
+      nuevaMedicion : this.date_user.ultimaMedicion,
+      personaMast : this.date_user.personaMast
+    }
+    this.optometriaService.saveInfoUser(data).subscribe(
+      response => {
+        this.date_user = response
+        console.log(response);
+
+        this.hide()
+      }, err => {
+        console.log(err);
+        this.hide()
+      }
+    ) 
+  }
+
   async smsError(){
     const alert = await this.alertCtrl.create({
       header: "SE GUARDARON CORECTAMENTE LOS CAMBIOS" ,
@@ -169,5 +205,17 @@ export class ModalOptometraComponent  implements OnInit {
     });
 
     await alert.present();
+  }
+  async show() {
+    const loading = await this.loadingController.create({
+      message: 'Cargando...', // Puedes personalizar el mensaje
+      duration: 2000, // Duración en milisegundos. O utiliza spinner: 'crescent' para que sea indefinido hasta que lo ocultes manualmente.
+    });
+
+    await loading.present();
+  }
+
+  async hide() {
+    await this.loadingController.dismiss();
   }
 }
